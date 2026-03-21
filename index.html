@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MD Rahman — Mechanical Engineer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Outfit', 'sans-serif'],
+            mono: ['DM Mono', 'monospace'],
+          },
+          colors: {
+            slate: {
+              925: '#0a0f1a',
+              950: '#060a12',
+            },
+            cyan: {
+              accent: '#22d3ee',
+              glow: '#06b6d4',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { background: #060a12; color: #e2e8f0; font-family: 'Outfit', sans-serif; overflow-x: hidden; }
+
+    /* Grid background */
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(34,211,238,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(34,211,238,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    /* Glow effects */
+    .glow-line {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #22d3ee, transparent);
+      opacity: 0.4;
+    }
+    .glow-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #22d3ee;
+      box-shadow: 0 0 12px #22d3ee, 0 0 24px rgba(34,211,238,0.3);
+    }
+    .glow-text {
+      text-shadow: 0 0 40px rgba(34,211,238,0.15);
+    }
+
+    /* Card hover */
+    .eng-card {
+      background: linear-gradient(135deg, rgba(15,23,42,0.8), rgba(15,23,42,0.4));
+      border: 1px solid rgba(34,211,238,0.08);
+      backdrop-filter: blur(12px);
+      transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .eng-card:hover {
+      border-color: rgba(34,211,238,0.25);
+      box-shadow: 0 0 40px rgba(34,211,238,0.06), inset 0 1px 0 rgba(34,211,238,0.1);
+      transform: translateY(-4px);
+    }
+
+    /* Skill pill */
+    .skill-tag {
+      background: rgba(34,211,238,0.06);
+      border: 1px solid rgba(34,211,238,0.12);
+      transition: all 0.3s ease;
+    }
+    .skill-tag:hover {
+      background: rgba(34,211,238,0.12);
+      border-color: rgba(34,211,238,0.3);
+      box-shadow: 0 0 16px rgba(34,211,238,0.08);
+    }
+
+    /* Timeline connector */
+    .timeline-line {
+      width: 2px;
+      background: linear-gradient(180deg, #22d3ee, rgba(34,211,238,0.05));
+    }
+
+    /* Scroll animations */
+    .reveal {
+      opacity: 0; transform: translateY(32px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* Nav */
+    .nav-link {
+      position: relative;
+      color: #94a3b8;
+      transition: color 0.3s;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute; left: 0; bottom: -4px;
+      width: 0; height: 1px;
+      background: #22d3ee;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover { color: #22d3ee; }
+    .nav-link:hover::after { width: 100%; }
+
+    /* Project placeholder shimmer */
+    .project-placeholder {
+      background: linear-gradient(135deg, rgba(15,23,42,0.6), rgba(15,23,42,0.3));
+      border: 1px dashed rgba(34,211,238,0.15);
+      transition: all 0.4s ease;
+    }
+    .project-placeholder:hover {
+      border-color: rgba(34,211,238,0.35);
+      background: linear-gradient(135deg, rgba(15,23,42,0.8), rgba(15,23,42,0.5));
+    }
+
+    /* GPA badge pulse */
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(34,211,238,0.15); }
+      50% { box-shadow: 0 0 35px rgba(34,211,238,0.3); }
+    }
+    .gpa-badge { animation: pulse-glow 3s ease-in-out infinite; }
+
+    /* Hero particles */
+    .hero-orb {
+      position: absolute; border-radius: 50%;
+      background: radial-gradient(circle, rgba(34,211,238,0.08), transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #060a12; }
+    ::-webkit-scrollbar-thumb { background: rgba(34,211,238,0.2); border-radius: 3px; }
+
+    /* Mobile nav */
+    .mobile-menu { transform: translateX(100%); transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1); }
+    .mobile-menu.open { transform: translateX(0); }
+  </style>
+</head>
+<body class="grid-bg">
+
+  <!-- ═══════════════════ NAV ═══════════════════ -->
+  <nav class="fixed top-0 w-full z-50 bg-slate-950/70 backdrop-blur-xl border-b border-cyan-accent/5">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="#" class="font-mono text-sm tracking-wider text-cyan-accent">MDR<span class="text-slate-500">.</span>ENG</a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#experience" class="nav-link font-mono text-xs tracking-widest uppercase">Experience</a>
+        <a href="#skills" class="nav-link font-mono text-xs tracking-widest uppercase">Skills</a>
+        <a href="#projects" class="nav-link font-mono text-xs tracking-widest uppercase">Projects</a>
+        <a href="#education" class="nav-link font-mono text-xs tracking-widest uppercase">Education</a>
+        <a href="mailto:mrahman141@citymail.cuny.edu" class="ml-2 px-4 py-2 border border-cyan-accent/30 text-cyan-accent font-mono text-xs tracking-wider rounded hover:bg-cyan-accent/10 transition-all">CONTACT</a>
+      </div>
+      <button id="menuToggle" class="md:hidden text-slate-400 hover:text-cyan-accent transition-colors">
+        <i data-lucide="menu" class="w-5 h-5"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 w-64 h-full z-50 bg-slate-950/95 backdrop-blur-2xl border-l border-cyan-accent/10 flex flex-col pt-20 px-8 gap-6">
+    <button id="menuClose" class="absolute top-5 right-5 text-slate-400 hover:text-cyan-accent">
+      <i data-lucide="x" class="w-5 h-5"></i>
+    </button>
+    <a href="#experience" class="nav-link font-mono text-sm tracking-widest uppercase mobile-link">Experience</a>
+    <a href="#skills" class="nav-link font-mono text-sm tracking-widest uppercase mobile-link">Skills</a>
+    <a href="#projects" class="nav-link font-mono text-sm tracking-widest uppercase mobile-link">Projects</a>
+    <a href="#education" class="nav-link font-mono text-sm tracking-widest uppercase mobile-link">Education</a>
+    <a href="mailto:mrahman141@citymail.cuny.edu" class="mt-4 px-4 py-2 border border-cyan-accent/30 text-cyan-accent font-mono text-xs tracking-wider rounded text-center hover:bg-cyan-accent/10 transition-all mobile-link">CONTACT</a>
+  </div>
+
+  <!-- ═══════════════════ HERO ═══════════════════ -->
+  <header class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+    <!-- Orbs -->
+    <div class="hero-orb w-[600px] h-[600px] -top-40 -right-40 opacity-40"></div>
+    <div class="hero-orb w-[400px] h-[400px] bottom-20 -left-32 opacity-30"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      <!-- Monogram -->
+      <div class="inline-flex items-center gap-3 mb-8">
+        <div class="w-10 h-[1px] bg-cyan-accent/40"></div>
+        <span class="font-mono text-xs tracking-[0.35em] text-cyan-accent/70 uppercase">Portfolio</span>
+        <div class="w-10 h-[1px] bg-cyan-accent/40"></div>
+      </div>
+
+      <h1 class="font-display font-800 text-5xl sm:text-7xl lg:text-8xl tracking-tight leading-[0.9] mb-6 glow-text">
+        <span class="text-white">MD</span><br />
+        <span class="text-white">Rahman</span>
+      </h1>
+
+      <p class="font-mono text-sm sm:text-base text-slate-400 tracking-wide max-w-xl mx-auto mb-8 leading-relaxed">
+        Mechanical Engineering · <span class="text-cyan-accent">The City College of New York</span><br />
+        Grove School of Engineering
+      </p>
+
+      <!-- GPA Badge -->
+      <div class="gpa-badge inline-flex items-center gap-3 px-6 py-3 rounded-full border border-cyan-accent/20 bg-cyan-accent/5 mb-10">
+        <span class="font-mono text-xs tracking-widest text-slate-400 uppercase">Cumulative GPA</span>
+        <span class="font-display font-700 text-2xl text-cyan-accent">4.00</span>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="#experience" class="group px-6 py-3 bg-cyan-accent/10 border border-cyan-accent/20 rounded-lg font-mono text-sm text-cyan-accent tracking-wider hover:bg-cyan-accent/20 transition-all flex items-center gap-2">
+          View Work <i data-lucide="arrow-down" class="w-4 h-4 group-hover:translate-y-0.5 transition-transform"></i>
+        </a>
+        <a href="mailto:mrahman141@citymail.cuny.edu" class="px-6 py-3 border border-slate-700 rounded-lg font-mono text-sm text-slate-400 tracking-wider hover:border-slate-500 hover:text-slate-200 transition-all flex items-center gap-2">
+          <i data-lucide="mail" class="w-4 h-4"></i> Get in Touch
+        </a>
+      </div>
+
+      <!-- Coordinates -->
+      <div class="mt-16 flex justify-center gap-8 text-slate-600 font-mono text-[11px] tracking-widest">
+        <span>40.8198° N</span>
+        <span>73.9487° W</span>
+        <span>NYC</span>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
+      <span class="font-mono text-[10px] tracking-[0.3em] text-slate-500 uppercase">Scroll</span>
+      <div class="w-[1px] h-8 bg-gradient-to-b from-cyan-accent/50 to-transparent"></div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════ EXPERIENCE ═══════════════════ -->
+  <section id="experience" class="relative py-24 sm:py-32">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="reveal flex items-center gap-4 mb-16">
+        <span class="font-mono text-xs text-cyan-accent/60 tracking-widest">01</span>
+        <h2 class="font-display font-700 text-3xl sm:text-4xl text-white">Experience</h2>
+        <div class="flex-1 glow-line"></div>
+      </div>
+
+      <div class="grid gap-8 lg:gap-10">
+
+        <!-- BioWearLab -->
+        <div class="reveal eng-card rounded-2xl p-8 sm:p-10">
+          <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-6">
+            <div>
+              <div class="flex items-center gap-3 mb-2">
+                <div class="w-10 h-10 rounded-lg bg-cyan-accent/10 border border-cyan-accent/20 flex items-center justify-center">
+                  <i data-lucide="microscope" class="w-5 h-5 text-cyan-accent"></i>
+                </div>
+                <div>
+                  <h3 class="font-display font-600 text-xl text-white">BioWearLab</h3>
+                  <p class="font-mono text-xs text-cyan-accent/70 tracking-wider">Undergraduate Research Assistant</p>
+                </div>
+              </div>
+            </div>
+            <span class="font-mono text-xs text-slate-500 tracking-wider whitespace-nowrap">2026 — Present</span>
+          </div>
+          <div class="space-y-3 text-slate-400 text-sm leading-relaxed">
+            <p class="flex gap-3">
+              <span class="text-cyan-accent/40 mt-1.5 shrink-0"><i data-lucide="chevron-right" class="w-3 h-3"></i></span>
+              <span>Designing mechanical metamaterial architectures (BCC lattice) in CAD for additively manufactured TPU–graphene pressure/force sensors targeting wearable exoskeleton gait analysis.</span>
+            </p>
+            <p class="flex gap-3">
+              <span class="text-cyan-accent/40 mt-1.5 shrink-0"><i data-lucide="chevron-right" class="w-3 h-3"></i></span>
+              <span>Engineered 5+ custom test setups — fixtures, mounts, and loading rigs — for iterative sensor characterization across multiple force ranges (0–100 N).</span>
+            </p>
+            <p class="flex gap-3">
+              <span class="text-cyan-accent/40 mt-1.5 shrink-0"><i data-lucide="chevron-right" class="w-3 h-3"></i></span>
+              <span>Produced data visualizations and summary figures in Python/MATLAB used in internal research progress reports.</span>
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-6">
+            <span class="skill-tag px-3 py-1 rounded-full font-mono text-[11px] text-cyan-accent/80">SolidWorks</span>
+            <span class="skill-tag px-3 py-1 rounded-full font-mono text-[11px] text-cyan-accent/80">3D Printing</span>
+            <span class="skill-tag px-3 py-1 rounded-full font-mono text-[11px] text-cyan-accent/80">Python</span>
+            <span class="skill-tag px-3 py-1 rounded-full font-mono text-[11px] text-cyan-accent/80">MATLAB</span>
+            <span class="skill-tag px-3 py-1 rounded-full font-mono text-[11px] text-cyan-accent/80">Metamaterials</span>
+          </div>
+        </div>
+
+        <!-- Khan's Tutorial -->
+        <div class="reveal eng-card rounded-2xl p-8 sm:p-10">
+          <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-6">
+            <div>
+              <div class="flex items-center gap-3 mb-2">
+                <div class="w-10 h-10 rounded-lg bg-cyan-accent/10 border border-cyan-accent/20 flex items-center justify-center">
+                  <i data-lucide="users" class="w-5 h-5 text-cyan-accent"></i>
+                </div>
+                <div>
+                  <h3 class="font-display font-600 text-xl text-white">Khan's Tutorial</h3>
+                  <p class="font-mono text-xs text-cyan-accent/70 tracking-wider">Manager — Operations & Revenue</p>
+                </div>
+              </div>
+            </div>
+            <span class="font-mono text-xs text-slate-500 tracking-wider whitespace-nowrap">2024 — Present</span>
+          </div>
+          <div class="space-y-3 text-slate-400 text-sm leading-relaxed">
+            <p class="flex gap-3">
+              <span class="text-cyan-accent/40 mt-1.5 shrink-0"><i data-lucide="chevron-right" class="w-3 h-3"></i></span>
+              <span>Drove $15,000+ in enrollment revenue through consultative program placement and parent outreach campaigns.</span>
+            </p>
+            <p class="flex gap-3">
+              <span class="text-cyan-accent/40 mt-1.5 shrink-0"><i data-lucide="chevron-right" class="w-3 h-3"></i></span>
+              <span>Managed operations spanning 90 students and 8 instructors — scheduling, attendance tracking, room logistics, and family communications.</span>
+            </p>
+            <p class="flex gap-3">
+              <span class="text-cyan-accent/40 mt-1.5 shrink-0"><i data-lucide="chevron-right" class="w-3 h-3"></i></span>
+              <span>Cut missed sessions by 20% through automated reminders and CRM hygiene (Dialpad, Stripe, Pipedrive).</span>
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-6">
+            <span class="skill-tag px-3 py-1 rounded-full font-mono text-[11px] text-cyan-accent/80">Leadership</span>
+            <span class="skill-tag px-3 py-1 rounded-full font-mono text-[11px] text-cyan-accent/80">CRM</span>
+            <span class="skill-tag px-3 py-1 rounded-full font-mono text-[11px] text-cyan-accent/80">Pipedrive</span>
+            <span class="skill-tag px-3 py-1 rounded-full font-mono text-[11px] text-cyan-accent/80">Operations</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ SKILLS ═══════════════════ -->
+  <section id="skills" class="relative py-24 sm:py-32">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="reveal flex items-center gap-4 mb-16">
+        <span class="font-mono text-xs text-cyan-accent/60 tracking-widest">02</span>
+        <h2 class="font-display font-700 text-3xl sm:text-4xl text-white">Skills</h2>
+        <div class="flex-1 glow-line"></div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div class="reveal eng-card rounded-2xl p-8 text-center group">
+          <div class="w-14 h-14 mx-auto rounded-xl bg-cyan-accent/8 border border-cyan-accent/15 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <i data-lucide="cog" class="w-7 h-7 text-cyan-accent"></i>
+          </div>
+          <h3 class="font-display font-600 text-lg text-white mb-2">Hardware Engineering</h3>
+          <p class="font-mono text-xs text-slate-500 leading-relaxed">Mechanical design, sensor integration, test fixture development, and embedded systems</p>
+        </div>
+
+        <div class="reveal eng-card rounded-2xl p-8 text-center group">
+          <div class="w-14 h-14 mx-auto rounded-xl bg-cyan-accent/8 border border-cyan-accent/15 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <i data-lucide="bot" class="w-7 h-7 text-cyan-accent"></i>
+          </div>
+          <h3 class="font-display font-600 text-lg text-white mb-2">Robotics</h3>
+          <p class="font-mono text-xs text-slate-500 leading-relaxed">Drivetrain design, PID control, Arduino, IMU/encoder feedback, autonomous path planning</p>
+        </div>
+
+        <div class="reveal eng-card rounded-2xl p-8 text-center group">
+          <div class="w-14 h-14 mx-auto rounded-xl bg-cyan-accent/8 border border-cyan-accent/15 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <i data-lucide="box" class="w-7 h-7 text-cyan-accent"></i>
+          </div>
+          <h3 class="font-display font-600 text-lg text-white mb-2">3D Printing</h3>
+          <p class="font-mono text-xs text-slate-500 leading-relaxed">FDM additive manufacturing, TPU/PLA materials, rapid prototyping, lattice structures</p>
+        </div>
+
+        <div class="reveal eng-card rounded-2xl p-8 text-center group">
+          <div class="w-14 h-14 mx-auto rounded-xl bg-cyan-accent/8 border border-cyan-accent/15 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <i data-lucide="pen-tool" class="w-7 h-7 text-cyan-accent"></i>
+          </div>
+          <h3 class="font-display font-600 text-lg text-white mb-2">CAD Design</h3>
+          <p class="font-mono text-xs text-slate-500 leading-relaxed">SolidWorks, Onshape, parametric modeling, GD&T, technical documentation</p>
+        </div>
+
+        <div class="reveal eng-card rounded-2xl p-8 text-center group">
+          <div class="w-14 h-14 mx-auto rounded-xl bg-cyan-accent/8 border border-cyan-accent/15 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <i data-lucide="code-2" class="w-7 h-7 text-cyan-accent"></i>
+          </div>
+          <h3 class="font-display font-600 text-lg text-white mb-2">Web Development</h3>
+          <p class="font-mono text-xs text-slate-500 leading-relaxed">HTML/CSS, Tailwind, JavaScript, responsive design, GitHub Pages</p>
+        </div>
+
+        <div class="reveal eng-card rounded-2xl p-8 text-center group">
+          <div class="w-14 h-14 mx-auto rounded-xl bg-cyan-accent/8 border border-cyan-accent/15 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <i data-lucide="bar-chart-3" class="w-7 h-7 text-cyan-accent"></i>
+          </div>
+          <h3 class="font-display font-600 text-lg text-white mb-2">Data & Analysis</h3>
+          <p class="font-mono text-xs text-slate-500 leading-relaxed">Python, MATLAB, Excel, data visualization, statistical analysis, reporting</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ PROJECTS ═══════════════════ -->
+  <section id="projects" class="relative py-24 sm:py-32">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="reveal flex items-center gap-4 mb-16">
+        <span class="font-mono text-xs text-cyan-accent/60 tracking-widest">03</span>
+        <h2 class="font-display font-700 text-3xl sm:text-4xl text-white">Projects</h2>
+        <div class="flex-1 glow-line"></div>
+      </div>
+
+      <!-- Robot Feature Card -->
+      <div class="reveal eng-card rounded-2xl p-8 sm:p-10 mb-8">
+        <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-6">
+          <div>
+            <div class="flex items-center gap-3 mb-2">
+              <div class="w-10 h-10 rounded-lg bg-cyan-accent/10 border border-cyan-accent/20 flex items-center justify-center">
+                <i data-lucide="trophy" class="w-5 h-5 text-cyan-accent"></i>
+              </div>
+              <div>
+                <h3 class="font-display font-600 text-xl text-white">Competition Robot — StuyPulse 694</h3>
+                <p class="font-mono text-xs text-cyan-accent/70 tracking-wider">Mechanical Lead</p>
+              </div>
+            </div>
+          </div>
+          <span class="font-mono text-xs text-slate-500 tracking-wider whitespace-nowrap">2024 — 2025</span>
+        </div>
+        <div class="space-y-3 text-slate-400 text-sm leading-relaxed">
+          <p class="flex gap-3">
+            <span class="text-cyan-accent/40 mt-1.5 shrink-0"><i data-lucide="chevron-right" class="w-3 h-3"></i></span>
+            <span>Designed drivetrain and gearbox in SolidWorks/Onshape; reduced mass by 12% through plate pocketing and ribbed features with hand-calc stiffness verification.</span>
+          </p>
+          <p class="flex gap-3">
+            <span class="text-cyan-accent/40 mt-1.5 shrink-0"><i data-lucide="chevron-right" class="w-3 h-3"></i></span>
+            <span>Prototyped intake/manipulator via FDM; tuned PID control using encoder/IMU feedback to achieve ±3 cm autonomous path accuracy.</span>
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-2 mt-6">
+          <span class="skill-tag px-3 py-1 rounded-full font-mono text-[11px] text-cyan-accent/80">SolidWorks</span>
+          <span class="skill-tag px-3 py-1 rounded-full font-mono text-[11px] text-cyan-accent/80">FDM Printing</span>
+          <span class="skill-tag px-3 py-1 rounded-full font-mono text-[11px] text-cyan-accent/80">PID Control</span>
+          <span class="skill-tag px-3 py-1 rounded-full font-mono text-[11px] text-cyan-accent/80">Arduino</span>
+        </div>
+      </div>
+
+      <!-- Placeholder Gallery -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="reveal project-placeholder rounded-2xl aspect-[4/3] flex flex-col items-center justify-center gap-3 p-6">
+          <div class="w-12 h-12 rounded-xl bg-cyan-accent/5 flex items-center justify-center">
+            <i data-lucide="cpu" class="w-6 h-6 text-cyan-accent/30"></i>
+          </div>
+          <span class="font-mono text-xs text-slate-600 tracking-wider text-center">Robotics Build</span>
+          <span class="font-mono text-[10px] text-slate-700">Add photo here</span>
+        </div>
+        <div class="reveal project-placeholder rounded-2xl aspect-[4/3] flex flex-col items-center justify-center gap-3 p-6">
+          <div class="w-12 h-12 rounded-xl bg-cyan-accent/5 flex items-center justify-center">
+            <i data-lucide="printer" class="w-6 h-6 text-cyan-accent/30"></i>
+          </div>
+          <span class="font-mono text-xs text-slate-600 tracking-wider text-center">3D Print Portfolio</span>
+          <span class="font-mono text-[10px] text-slate-700">Add photo here</span>
+        </div>
+        <div class="reveal project-placeholder rounded-2xl aspect-[4/3] flex flex-col items-center justify-center gap-3 p-6">
+          <div class="w-12 h-12 rounded-xl bg-cyan-accent/5 flex items-center justify-center">
+            <i data-lucide="flask-conical" class="w-6 h-6 text-cyan-accent/30"></i>
+          </div>
+          <span class="font-mono text-xs text-slate-600 tracking-wider text-center">Research Work</span>
+          <span class="font-mono text-[10px] text-slate-700">Add photo here</span>
+        </div>
+      </div>
+
+      <!-- Instructions Comment -->
+      <p class="mt-6 font-mono text-[11px] text-slate-600 text-center">
+        <!-- To add project images: replace the placeholder divs above with <img src="your-image.jpg" class="rounded-2xl object-cover w-full h-full" /> -->
+        Tip: Replace placeholders with your project photos to complete this section.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ EDUCATION ═══════════════════ -->
+  <section id="education" class="relative py-24 sm:py-32">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="reveal flex items-center gap-4 mb-16">
+        <span class="font-mono text-xs text-cyan-accent/60 tracking-widest">04</span>
+        <h2 class="font-display font-700 text-3xl sm:text-4xl text-white">Education</h2>
+        <div class="flex-1 glow-line"></div>
+      </div>
+
+      <div class="grid gap-8 md:grid-cols-2">
+
+        <div class="reveal eng-card rounded-2xl p-8 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-cyan-accent/3 rounded-bl-[80px]"></div>
+          <div class="relative">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-lg bg-cyan-accent/10 border border-cyan-accent/20 flex items-center justify-center">
+                <i data-lucide="graduation-cap" class="w-5 h-5 text-cyan-accent"></i>
+              </div>
+              <span class="font-mono text-xs text-slate-500 tracking-wider">Expected May 2029</span>
+            </div>
+            <h3 class="font-display font-600 text-xl text-white mb-1">The City College of New York</h3>
+            <p class="font-mono text-sm text-cyan-accent/70 mb-4">B.E. Mechanical Engineering — Grove School</p>
+            <div class="flex items-center gap-3 p-3 rounded-lg bg-cyan-accent/5 border border-cyan-accent/10 w-fit">
+              <span class="font-mono text-xs text-slate-400">GPA</span>
+              <span class="font-display font-700 text-xl text-cyan-accent">4.00 / 4.00</span>
+            </div>
+            <p class="mt-4 font-mono text-[11px] text-slate-500 leading-relaxed">A+ in Calculus II, Physics I, Computer-Aided Drafting</p>
+          </div>
+        </div>
+
+        <div class="reveal eng-card rounded-2xl p-8 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-cyan-accent/3 rounded-bl-[80px]"></div>
+          <div class="relative">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-lg bg-cyan-accent/10 border border-cyan-accent/20 flex items-center justify-center">
+                <i data-lucide="school" class="w-5 h-5 text-cyan-accent"></i>
+              </div>
+              <span class="font-mono text-xs text-slate-500 tracking-wider">2021 — 2025</span>
+            </div>
+            <h3 class="font-display font-600 text-xl text-white mb-1">Stuyvesant High School</h3>
+            <p class="font-mono text-sm text-cyan-accent/70 mb-4">High School Diploma</p>
+            <div class="flex items-center gap-3 p-3 rounded-lg bg-cyan-accent/5 border border-cyan-accent/10 w-fit">
+              <i data-lucide="award" class="w-4 h-4 text-cyan-accent"></i>
+              <span class="font-mono text-xs text-slate-400">NYC's Premier STEM School</span>
+            </div>
+            <p class="mt-4 font-mono text-[11px] text-slate-500 leading-relaxed">Mechanical Lead, StuyPulse Robotics (Team 694)</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ FOOTER ═══════════════════ -->
+  <footer class="py-16 border-t border-cyan-accent/5">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+        <div class="text-center md:text-left">
+          <p class="font-display font-600 text-lg text-white mb-1">Let's build something.</p>
+          <p class="font-mono text-xs text-slate-500 tracking-wider">Open to summer internship opportunities</p>
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="mailto:mrahman141@citymail.cuny.edu" class="flex items-center gap-2 text-slate-400 hover:text-cyan-accent transition-colors group">
+            <i data-lucide="mail" class="w-4 h-4"></i>
+            <span class="font-mono text-xs tracking-wider">Email</span>
+          </a>
+          <a href="https://linkedin.com/in/mrahmanccny" target="_blank" class="flex items-center gap-2 text-slate-400 hover:text-cyan-accent transition-colors group">
+            <i data-lucide="linkedin" class="w-4 h-4"></i>
+            <span class="font-mono text-xs tracking-wider">LinkedIn</span>
+          </a>
+          <a href="tel:929-218-1905" class="flex items-center gap-2 text-slate-400 hover:text-cyan-accent transition-colors group">
+            <i data-lucide="phone" class="w-4 h-4"></i>
+            <span class="font-mono text-xs tracking-wider">Call</span>
+          </a>
+        </div>
+      </div>
+      <div class="mt-12 text-center">
+        <p class="font-mono text-[10px] text-slate-700 tracking-widest uppercase">Designed & Built by MD Rahman &middot; 2026</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Mobile menu
+    const menuToggle = document.getElementById('menuToggle');
+    const menuClose = document.getElementById('menuClose');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    menuToggle.addEventListener('click', () => mobileMenu.classList.add('open'));
+    menuClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    mobileLinks.forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => observer.observe(el));
+
+    // Nav background on scroll
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      nav.style.borderColor = window.scrollY > 50
+        ? 'rgba(34,211,238,0.08)'
+        : 'rgba(34,211,238,0.03)';
+    });
+  </script>
+</body>
+</html>

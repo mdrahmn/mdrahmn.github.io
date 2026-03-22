@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MD Rahman — Mechanical Engineer &amp; Roboticist</title>
+  <title>MD Rahman — Mechanical Engineer </title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -112,7 +112,8 @@
     .bullet-bar { width: 2px; border-radius: 2px; background-color: #DBEAFE; flex-shrink: 0; }
 
     /* ── Scroll reveal ── */
-    .r { opacity: 0; transform: translateY(28px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+    .r { opacity: 1; transform: translateY(0); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+    .r.hidden-init { opacity: 0; transform: translateY(28px); }
     .r.v { opacity: 1; transform: translateY(0); }
 
     /* ── Hero entrance ── */
@@ -512,7 +513,7 @@
     </div>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     // Mobile nav
     const ham=document.getElementById('hamBtn'),cl=document.getElementById('closeBtn'),mn=document.getElementById('mobNav'),mo=document.getElementById('mobOverlay');
     const mls=mn.querySelectorAll('a');
@@ -522,5 +523,12 @@
     mls.forEach(l=>l.addEventListener('click',cN));
 
     // Scroll reveal
-    const els=document.querySelectorAll('.r');let q=[],t=false;
-    const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(
+    const els=document.querySelectorAll('.r');
+    els.forEach(function(el){el.classList.add('hidden-init')});
+    let q=[],t=false;
+    const obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){q.push(e.target);obs.unobserve(e.target);if(!t){t=true;requestAnimationFrame(f)}}})},{threshold:0.06,rootMargin:'0px 0px -20px 0px'});
+    function f(){q.forEach(function(el,i){setTimeout(function(){el.classList.remove('hidden-init');el.classList.add('v')},i*90)});q=[];t=false}
+    els.forEach(function(el){obs.observe(el)});
+  </script>
+</body>
+</html>

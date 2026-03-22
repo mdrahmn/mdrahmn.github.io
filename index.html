@@ -12,89 +12,55 @@
     *{margin:0;padding:0;box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{background:#FFFFFF;color:#3B4252;font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-
-    /* Tabs */
-    .tab-page{display:none}
-    .tab-page.active{display:block}
+    .tab-page{display:none}.tab-page.active{display:block}
     .tab-btn{color:#6B7280;padding:8px 16px;border-radius:8px;font-size:14px;font-weight:500;transition:all .2s ease;cursor:pointer;border:none;background:none}
-    .tab-btn:hover{color:#111827;background:#F3F4F6}
-    .tab-btn.active{color:#2563EB;background:#EFF6FF}
-
-    /* Cards */
-    .card{background:#FFFFFF;border:1px solid #E5E7EB;border-radius:14px;transition:box-shadow .4s ease,transform .4s cubic-bezier(.16,1,.3,1),border-color .3s ease}
+    .tab-btn:hover{color:#111827;background:#F3F4F6}.tab-btn.active{color:#2563EB;background:#EFF6FF}
+    .card{background:#FFF;border:1px solid #E5E7EB;border-radius:14px;transition:box-shadow .4s ease,transform .4s cubic-bezier(.16,1,.3,1),border-color .3s ease}
     .card:hover{box-shadow:0 12px 40px rgba(0,0,0,.06),0 2px 6px rgba(0,0,0,.03);transform:translateY(-3px);border-color:#D1D5DB}
-
-    /* Image placeholder */
-    .img-slot{background:#F9FAFB;border:1px dashed #D1D5DB;border-radius:10px;transition:border-color .3s ease,background .3s ease;overflow:hidden}
+    .img-slot{background:#F9FAFB;border:1px dashed #D1D5DB;border-radius:10px;transition:border-color .3s,background .3s;overflow:hidden}
     .img-slot:hover{border-color:#93C5FD;background:#EFF6FF}
     .img-slot img{width:100%;height:100%;object-fit:cover;border-radius:9px}
-
-    /* Metric */
     .metric{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:8px;background:#EFF6FF;border:1px solid #DBEAFE;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#2563EB;font-weight:500}
-
-    /* Tag */
-    .tag{padding:4px 12px;border-radius:6px;background:#F3F4F6;border:1px solid #E5E7EB;font-size:12px;color:#6B7280;font-family:'IBM Plex Mono',monospace;transition:all .25s ease}
+    .tag{padding:4px 12px;border-radius:6px;background:#F3F4F6;border:1px solid #E5E7EB;font-size:12px;color:#6B7280;font-family:'IBM Plex Mono',monospace;transition:all .25s}
     .tag:hover{background:#EFF6FF;border-color:#BFDBFE;color:#2563EB}
-
-    /* Nav link */
-    .nav-a{color:#6B7280;transition:color .2s ease;font-size:14px}
-    .nav-a:hover{color:#111827}
-
-    /* Resume button */
-    .resume-btn{padding:8px 20px;border-radius:8px;background:#2563EB;color:#fff;font-size:14px;font-weight:600;transition:background .25s ease,box-shadow .25s ease;text-decoration:none;display:inline-flex;align-items:center;gap:6px;cursor:pointer;border:none}
+    .resume-btn{padding:8px 20px;border-radius:8px;background:#2563EB;color:#fff;font-size:14px;font-weight:600;transition:background .25s,box-shadow .25s;text-decoration:none;display:inline-flex;align-items:center;gap:6px;cursor:pointer;border:none}
     .resume-btn:hover{background:#1D4ED8;box-shadow:0 4px 16px rgba(37,99,235,.25)}
-
-    /* Stat card */
-    .stat-card{background:#FFFFFF;border:1px solid #E5E7EB;border-radius:12px;text-align:center;padding:24px 16px;transition:box-shadow .3s ease,transform .3s ease}
+    .stat-card{background:#FFF;border:1px solid #E5E7EB;border-radius:12px;text-align:center;padding:24px 16px;transition:box-shadow .3s,transform .3s}
     .stat-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.05);transform:translateY(-2px)}
-
-    /* Section label */
     .section-label{font-family:'IBM Plex Mono',monospace;font-size:12px;color:#2563EB;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
-
-    /* PAR */
     .par-label{display:inline-block;width:60px;flex-shrink:0;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;padding:3px 0}
-    .par-p{color:#DC2626} .par-a{color:#2563EB} .par-r{color:#059669}
-
-    /* Bullet bar */
+    .par-p{color:#DC2626}.par-a{color:#2563EB}.par-r{color:#059669}
     .bullet-bar{width:2px;border-radius:2px;background:#DBEAFE;flex-shrink:0}
-
-    /* Divider */
     .divider{height:1px;background:#F3F4F6}
-
-    /* Resume tab styles */
+    .ext-link{color:#2563EB;text-decoration:none;font-size:13px;font-weight:500;transition:color .2s}
+    .ext-link:hover{color:#1D4ED8;text-decoration:underline}
     .res-section{margin-bottom:40px}
     .res-h2{font-size:20px;font-weight:700;color:#111827;margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid #2563EB}
-    .res-entry{margin-bottom:24px}
-    .res-title{font-weight:600;color:#111827;font-size:15px}
+    .res-entry{margin-bottom:32px}
+    .res-title{font-weight:700;color:#111827;font-size:18px}
     .res-sub{font-size:13px;color:#6B7280;margin-top:2px}
     .res-date{font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9CA3AF}
     .res-bullet{color:#4B5563;font-size:14px;line-height:1.7;margin-top:6px;padding-left:16px;position:relative}
     .res-bullet::before{content:"•";position:absolute;left:0;color:#2563EB}
-
-    /* Mobile nav */
+    .res-subrole{margin-left:20px;padding-left:16px;border-left:2px solid #DBEAFE;margin-top:16px;padding-top:2px;padding-bottom:2px}
+    .res-role{font-weight:600;color:#111827;font-size:15px}
+    .res-role-date{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#9CA3AF;margin-top:2px}
+    .res-role-bullet{color:#4B5563;font-size:13px;line-height:1.7;margin-top:5px;padding-left:16px;position:relative}
+    .res-role-bullet::before{content:"•";position:absolute;left:0;color:#93C5FD}
     .mob-nav{transform:translateX(100%);transition:transform .35s cubic-bezier(.16,1,.3,1)}
     .mob-nav.open{transform:translateX(0)}
-    .mob-overlay{opacity:0;pointer-events:none;transition:opacity .3s ease}
-    .mob-overlay.open{opacity:1;pointer-events:auto}
-
-    /* Scroll reveal */
+    .mob-overlay{opacity:0;pointer-events:none;transition:opacity .3s}.mob-overlay.open{opacity:1;pointer-events:auto}
     .r{opacity:1;transform:translateY(0);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
-    .r.hi{opacity:0;transform:translateY(28px)}
-    .r.v{opacity:1;transform:translateY(0)}
-
-    /* Hero anim */
+    .r.hi{opacity:0;transform:translateY(28px)}.r.v{opacity:1;transform:translateY(0)}
     @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
     .h-anim{opacity:0;animation:fadeUp .8s cubic-bezier(.16,1,.3,1) forwards}
     .h1{animation-delay:.05s}.h2{animation-delay:.15s}.h3{animation-delay:.25s}.h4{animation-delay:.35s}
-
-    ::-webkit-scrollbar{width:5px}
-    ::-webkit-scrollbar-track{background:#fff}
-    ::-webkit-scrollbar-thumb{background:#D1D5DB;border-radius:3px}
+    ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:#fff}::-webkit-scrollbar-thumb{background:#D1D5DB;border-radius:3px}
   </style>
 </head>
 <body>
 
-  <!-- ══════ NAV ══════ -->
+  <!-- NAV -->
   <nav class="fixed top-0 w-full z-50" style="background:rgba(255,255,255,.92);backdrop-filter:blur(16px);border-bottom:1px solid #F3F4F6;">
     <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
       <div class="flex items-center gap-3">
@@ -116,7 +82,6 @@
     </div>
   </nav>
 
-  <!-- Mobile overlay + drawer -->
   <div id="mobOverlay" class="mob-overlay fixed inset-0 z-50 bg-black/20"></div>
   <div id="mobNav" class="mob-nav fixed top-0 right-0 w-72 h-full z-50 flex flex-col pt-6 px-6" style="background:#fff;box-shadow:-8px 0 30px rgba(0,0,0,.06);">
     <div class="flex justify-between items-center mb-8">
@@ -135,9 +100,9 @@
     </div>
   </div>
 
-  <!-- ╔══════════════════════════════════════════════╗ -->
-  <!-- ║              HOME TAB                         ║ -->
-  <!-- ╚══════════════════════════════════════════════╝ -->
+  <!-- ╔═══════════════════════════════════╗ -->
+  <!-- ║           HOME TAB                ║ -->
+  <!-- ╚═══════════════════════════════════╝ -->
   <div id="page-home" class="tab-page active">
 
     <!-- HERO -->
@@ -147,14 +112,14 @@
           <p class="h-anim h1 font-mono text-sm tracking-wide mb-4" style="color:#2563EB;font-family:'IBM Plex Mono',monospace;">Mechanical Engineer &amp; Roboticist</p>
           <h1 class="h-anim h2 font-bold tracking-tight leading-none" style="color:#111827;font-size:clamp(2.5rem,6vw,4rem);">MD Rahman</h1>
           <p class="h-anim h3 mt-6 text-lg leading-relaxed max-w-lg" style="color:#6B7280;">
-            Engineering student at <span style="color:#111827" class="font-medium">CCNY Grove School</span> with a <span style="color:#111827" class="font-medium">4.0 GPA</span>. Currently researching wearable exoskeleton sensors at <span style="color:#111827" class="font-medium">BioWearLab</span>. Previously Mechanical Lead for a competitive FIRST robot.
+            Engineering student at <span style="color:#111827" class="font-medium">CCNY Grove School</span> with a <span style="color:#111827" class="font-medium">4.0 GPA</span>. Currently researching wearable exoskeleton sensors at <a href="https://www.biowearlab.org/" target="_blank" class="font-medium" style="color:#2563EB;">BioWearLab</a>. Previously Mechanical Lead for a competitive FIRST robot.
           </p>
           <div class="h-anim h4 mt-8 flex flex-wrap items-center gap-4">
             <a href="Resume_MD_Rahman.pdf" target="_blank" class="resume-btn">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
               Download Resume
             </a>
-            <a href="mailto:mrahman141@citymail.cuny.edu" class="text-sm font-medium transition-colors" style="color:#2563EB;">mrahman141@citymail.cuny.edu</a>
+            <a href="mailto:mrahman141@citymail.cuny.edu" class="text-sm font-medium" style="color:#2563EB;">mrahman141@citymail.cuny.edu</a>
           </div>
           <div class="h-anim h4 mt-10 flex flex-wrap gap-3">
             <span class="metric">4.0 GPA</span>
@@ -167,16 +132,17 @@
 
     <div class="divider max-w-5xl mx-auto"></div>
 
-    <!-- RESEARCH -->
+    <!-- 01 RESEARCH -->
     <section class="py-24 sm:py-28" style="background:#fff;">
       <div class="max-w-5xl mx-auto px-6">
         <div class="r">
           <p class="section-label">01 — Research</p>
-          <h2 class="font-bold text-2xl sm:text-3xl mb-4" style="color:#111827;">BioWearLab — Exoskeleton Sensor Systems</h2>
-          <p class="text-sm font-mono" style="color:#6B7280;font-family:'IBM Plex Mono',monospace;">Undergraduate Research Assistant · Mechanical Engineering · 2026 — Present</p>
+          <h2 class="font-bold text-2xl sm:text-3xl mb-2" style="color:#111827;">BioWearLab — Exoskeleton Sensor Systems</h2>
+          <p class="text-sm font-mono" style="color:#6B7280;font-family:'IBM Plex Mono',monospace;">Undergraduate Research Assistant · Jan 2026 — Present</p>
+          <a href="https://www.biowearlab.org/" target="_blank" class="ext-link mt-2 inline-block">biowearlab.org ↗</a>
         </div>
         <div class="r mt-8 max-w-3xl">
-          <p class="text-base leading-relaxed" style="color:#6B7280;">Designing tunable metamaterial lattice architectures for body-mounted force sensors used in gait analysis and rehabilitation exoskeletons. Engineering structures at the unit-cell level to hit precise force targets for wearable applications.</p>
+          <p class="text-base leading-relaxed" style="color:#6B7280;">Designing tunable metamaterial lattice architectures for body-mounted force sensors used in gait analysis and rehabilitation exoskeletons at The Biomimetic Wearable Robotics Lab.</p>
         </div>
         <div class="r mt-10 grid grid-cols-1 sm:grid-cols-2 gap-5">
           <div class="img-slot aspect-[16/10] flex flex-col items-center justify-center gap-3 p-8">
@@ -190,8 +156,8 @@
         </div>
         <div class="r mt-10 space-y-4 max-w-3xl">
           <div class="flex gap-4"><div class="bullet-bar mt-1" style="height:auto"></div><p class="text-sm leading-relaxed" style="color:#6B7280;">Modeled BCC lattice metamaterials in SolidWorks for TPU–graphene pressure sensors; tuned unit-cell geometry to target gait-force ranges (0–50 N, 0–100 N).</p></div>
-          <div class="flex gap-4"><div class="bullet-bar mt-1" style="height:auto"></div><p class="text-sm leading-relaxed" style="color:#6B7280;">Designed <span style="color:#059669" class="font-medium">5+ custom test setups</span> — fixtures, mounts, loading rigs — enabling iterative sensor characterization.</p></div>
-          <div class="flex gap-4"><div class="bullet-bar mt-1" style="height:auto"></div><p class="text-sm leading-relaxed" style="color:#6B7280;">Generated data visualizations in Python/MATLAB contributing figures to internal progress reports.</p></div>
+          <div class="flex gap-4"><div class="bullet-bar mt-1" style="height:auto"></div><p class="text-sm leading-relaxed" style="color:#6B7280;">Built and documented test setups (fixtures, mounts, rigs) and supported experiment data collection; maintained clear lab notes and versioned design files.</p></div>
+          <div class="flex gap-4"><div class="bullet-bar mt-1" style="height:auto"></div><p class="text-sm leading-relaxed" style="color:#6B7280;">Analyzed results in Excel/Python/MATLAB; produced figures and tables for internal updates and weekly progress communication.</p></div>
         </div>
         <div class="r mt-8 flex flex-wrap gap-2">
           <span class="tag">Exoskeletons</span><span class="tag">Metamaterials</span><span class="tag">SolidWorks</span><span class="tag">3D Printing</span><span class="tag">Python</span><span class="tag">MATLAB</span>
@@ -201,7 +167,7 @@
 
     <div class="divider max-w-5xl mx-auto"></div>
 
-    <!-- PROJECTS -->
+    <!-- 02 PROJECTS -->
     <section class="py-24 sm:py-28" style="background:#fff;">
       <div class="max-w-5xl mx-auto px-6">
         <div class="r">
@@ -209,12 +175,12 @@
           <h2 class="font-bold text-2xl sm:text-3xl" style="color:#111827;">Engineering Work</h2>
         </div>
 
-        <!-- Robot PAR card -->
+        <!-- StuyPulse Robot -->
         <div class="r mt-12 card p-8 sm:p-10">
           <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-6">
             <div>
               <h3 class="font-semibold text-xl" style="color:#111827;">Competition Robot — StuyPulse 694</h3>
-              <p class="font-mono text-xs mt-1" style="color:#9CA3AF;font-family:'IBM Plex Mono',monospace;">Mechanical Lead · 2024 — 2025</p>
+              <p class="font-mono text-xs mt-1" style="color:#6B7280;font-family:'IBM Plex Mono',monospace;">Mechanical Lead · 2024 — 2025</p>
             </div>
             <span class="tag shrink-0">FIRST Robotics</span>
           </div>
@@ -238,65 +204,100 @@
           </div>
         </div>
 
-        <!-- Project grid -->
+        <!-- Turntable Reverse Engineering -->
+        <div class="r mt-8 card p-8 sm:p-10">
+          <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-6">
+            <div>
+              <h3 class="font-semibold text-xl" style="color:#111827;">Reverse Engineering a Motorized 360° Turntable</h3>
+              <p class="font-mono text-xs mt-1" style="color:#6B7280;font-family:'IBM Plex Mono',monospace;">ME 145 · CCNY Grove School · Sep — Dec 2025</p>
+            </div>
+            <span class="tag shrink-0">Coursework</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+            <div class="img-slot aspect-[16/10] flex flex-col items-center justify-center gap-3 p-6">
+              <svg class="w-8 h-8" style="color:#D1D5DB" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+              <span class="font-mono text-xs" style="color:#9CA3AF;">SolidWorks Assembly</span>
+            </div>
+            <div class="img-slot aspect-[16/10] flex flex-col items-center justify-center gap-3 p-6">
+              <svg class="w-8 h-8" style="color:#D1D5DB" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+              <span class="font-mono text-xs" style="color:#9CA3AF;">3D Printed Revised Parts</span>
+            </div>
+          </div>
+          <div class="space-y-4 max-w-3xl">
+            <div class="flex gap-4 items-start"><span class="par-label par-p">Problem</span><p class="text-sm leading-relaxed" style="color:#6B7280;">Low-cost rotating display stand suffered from top-plate wobble, gear slip, and limited load capacity.</p></div>
+            <div class="flex gap-4 items-start"><span class="par-label par-a">Action</span><p class="text-sm leading-relaxed" style="color:#6B7280;">Disassembled and measured all components; created measurement-based 2D sketches and parametric SolidWorks models (parts, assembly, section views). Identified failure points and designed improvements — larger gear teeth/face width, thicker hub with fillets.</p></div>
+            <div class="flex gap-4 items-start"><span class="par-label par-r">Result</span><p class="text-sm leading-relaxed" style="color:#6B7280;">3D printed revised parts and validated fit/operation with <span style="color:#059669" class="font-medium">reduced wobble</span> and <span style="color:#059669" class="font-medium">more consistent gear engagement</span>.</p></div>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-8">
+            <span class="tag">SolidWorks</span><span class="tag">Reverse Engineering</span><span class="tag">3D Printing</span><span class="tag">Technical Drawing</span><span class="tag">GD&amp;T</span>
+          </div>
+        </div>
+
+        <!-- Propeller Hydrodynamics -->
+        <div class="r mt-8 card p-8 sm:p-10">
+          <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-6">
+            <div>
+              <h3 class="font-semibold text-xl" style="color:#111827;">Propeller Hydrodynamics Project</h3>
+              <p class="font-mono text-xs mt-1" style="color:#6B7280;font-family:'IBM Plex Mono',monospace;">Student Researcher · New York, NY · 2024</p>
+            </div>
+            <span class="tag shrink-0">Research</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+            <div class="img-slot aspect-[16/10] flex flex-col items-center justify-center gap-3 p-6">
+              <svg class="w-8 h-8" style="color:#D1D5DB" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+              <span class="font-mono text-xs" style="color:#9CA3AF;">Propeller CAD Models</span>
+            </div>
+            <div class="img-slot aspect-[16/10] flex flex-col items-center justify-center gap-3 p-6">
+              <svg class="w-8 h-8" style="color:#D1D5DB" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+              <span class="font-mono text-xs" style="color:#9CA3AF;">Electric Boat Field Test</span>
+            </div>
+          </div>
+          <div class="space-y-4 max-w-3xl">
+            <div class="flex gap-4 items-start"><span class="par-label par-p">Problem</span><p class="text-sm leading-relaxed" style="color:#6B7280;">Needed to evaluate how propeller geometry (pitch, blade shape) affects efficiency on a small electric boat.</p></div>
+            <div class="flex gap-4 items-start"><span class="par-label par-a">Action</span><p class="text-sm leading-relaxed" style="color:#6B7280;">Modeled and FDM 3D printed multiple propeller geometries in Onshape; iterated pitch and geometry for comparison. Field tested on an electric boat, recording speed and power data.</p></div>
+            <div class="flex gap-4 items-start"><span class="par-label par-r">Result</span><p class="text-sm leading-relaxed" style="color:#6B7280;">Evaluated efficiency across geometries and summarized results in a <span style="color:#059669" class="font-medium">research-style report</span> comparing performance data.</p></div>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-8">
+            <span class="tag">Onshape</span><span class="tag">FDM Printing</span><span class="tag">Hydrodynamics</span><span class="tag">Data Analysis</span><span class="tag">Field Testing</span>
+          </div>
+        </div>
+
+        <!-- Project gallery -->
         <div class="r mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="card overflow-hidden">
-            <div class="img-slot aspect-[16/10] flex items-center justify-center">
-              <svg class="w-8 h-8" style="color:#D1D5DB" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-            </div>
-            <div class="p-5">
-              <h4 class="font-semibold text-sm" style="color:#111827;">3D Printing Portfolio</h4>
-              <p class="text-xs mt-1" style="color:#9CA3AF;">FDM prints, lattice structures, rapid prototypes</p>
-            </div>
-          </div>
-          <div class="card overflow-hidden">
-            <div class="img-slot aspect-[16/10] flex items-center justify-center">
-              <svg class="w-8 h-8" style="color:#D1D5DB" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-            </div>
-            <div class="p-5">
-              <h4 class="font-semibold text-sm" style="color:#111827;">Lab Research Gallery</h4>
-              <p class="text-xs mt-1" style="color:#9CA3AF;">Sensor rigs, test fixtures, data visualizations</p>
-            </div>
-          </div>
-          <div class="card overflow-hidden">
-            <div class="img-slot aspect-[16/10] flex items-center justify-center">
-              <svg class="w-8 h-8" style="color:#D1D5DB" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-            </div>
-            <div class="p-5">
-              <h4 class="font-semibold text-sm" style="color:#111827;">CAD Design Work</h4>
-              <p class="text-xs mt-1" style="color:#9CA3AF;">Exploded views, assemblies, parametric models</p>
-            </div>
-          </div>
+          <div class="card overflow-hidden"><div class="img-slot aspect-[16/10] flex items-center justify-center"><svg class="w-8 h-8" style="color:#D1D5DB" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div><div class="p-5"><h4 class="font-semibold text-sm" style="color:#111827;">3D Printing Portfolio</h4><p class="text-xs mt-1" style="color:#9CA3AF;">FDM prints, lattice structures, rapid prototypes</p></div></div>
+          <div class="card overflow-hidden"><div class="img-slot aspect-[16/10] flex items-center justify-center"><svg class="w-8 h-8" style="color:#D1D5DB" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div><div class="p-5"><h4 class="font-semibold text-sm" style="color:#111827;">Lab Research Gallery</h4><p class="text-xs mt-1" style="color:#9CA3AF;">Sensor rigs, test fixtures, data visualizations</p></div></div>
+          <div class="card overflow-hidden"><div class="img-slot aspect-[16/10] flex items-center justify-center"><svg class="w-8 h-8" style="color:#D1D5DB" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div><div class="p-5"><h4 class="font-semibold text-sm" style="color:#111827;">CAD Design Work</h4><p class="text-xs mt-1" style="color:#9CA3AF;">Exploded views, assemblies, parametric models</p></div></div>
         </div>
       </div>
     </section>
 
     <div class="divider max-w-5xl mx-auto"></div>
 
-    <!-- EXPERIENCE -->
+    <!-- 03 EXPERIENCE -->
     <section class="py-24 sm:py-28" style="background:#fff;">
       <div class="max-w-5xl mx-auto px-6">
         <div class="r">
           <p class="section-label">03 — Experience</p>
-          <h2 class="font-bold text-2xl sm:text-3xl mb-4" style="color:#111827;">Khan's Tutorial — Manager</h2>
-          <p class="text-sm font-mono" style="color:#6B7280;font-family:'IBM Plex Mono',monospace;">Operations &amp; Revenue · Queens, NY · 2024 — Present</p>
+          <h2 class="font-bold text-2xl sm:text-3xl mb-2" style="color:#111827;">Khan's Tutorial — Branch Manager</h2>
+          <p class="text-sm font-mono" style="color:#6B7280;font-family:'IBM Plex Mono',monospace;">Operations &amp; Revenue · Queens, NY · Jan 2025 — Present</p>
+          <a href="https://khanstutorial.com/" target="_blank" class="ext-link mt-2 inline-block">khanstutorial.com ↗</a>
         </div>
-        <div class="r mt-8 max-w-3xl text-base leading-relaxed" style="color:#6B7280;">Running day-to-day operations for a tutoring center serving 90 students and 8 instructors — from scheduling and room logistics to revenue generation and parent communications.</div>
+        <div class="r mt-8 max-w-3xl text-base leading-relaxed" style="color:#6B7280;">Running day-to-day branch operations for tutoring programs serving 90+ students and 8 instructors — from scheduling and room logistics to revenue generation and parent communications.</div>
         <div class="r mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4">
           <div class="stat-card"><p class="font-mono text-2xl font-bold" style="color:#059669;">$15K+</p><p class="font-mono text-xs mt-1" style="color:#6B7280;">Revenue Closed</p></div>
-          <div class="stat-card"><p class="font-mono text-2xl font-bold" style="color:#2563EB;">90</p><p class="font-mono text-xs mt-1" style="color:#6B7280;">Students Managed</p></div>
+          <div class="stat-card"><p class="font-mono text-2xl font-bold" style="color:#2563EB;">90+</p><p class="font-mono text-xs mt-1" style="color:#6B7280;">Students Managed</p></div>
           <div class="stat-card"><p class="font-mono text-2xl font-bold" style="color:#059669;">20%</p><p class="font-mono text-xs mt-1" style="color:#6B7280;">Fewer Missed Sessions</p></div>
           <div class="stat-card"><p class="font-mono text-2xl font-bold" style="color:#059669;">24→79%</p><p class="font-mono text-xs mt-1" style="color:#6B7280;">SHSAT Scores</p></div>
         </div>
         <div class="r mt-8 flex flex-wrap gap-2">
-          <span class="tag">Leadership</span><span class="tag">CRM (Pipedrive)</span><span class="tag">Stripe</span><span class="tag">Dialpad</span><span class="tag">Operations</span>
+          <span class="tag">Leadership</span><span class="tag">CRM (Pipedrive)</span><span class="tag">Stripe</span><span class="tag">Dialpad</span><span class="tag">Operations</span><span class="tag">Teaching</span>
         </div>
       </div>
     </section>
 
     <div class="divider max-w-5xl mx-auto"></div>
 
-    <!-- SKILLS -->
+    <!-- 04 SKILLS -->
     <section class="py-24 sm:py-28" style="background:#fff;">
       <div class="max-w-5xl mx-auto px-6">
         <div class="r">
@@ -304,34 +305,10 @@
           <h2 class="font-bold text-2xl sm:text-3xl mb-12" style="color:#111827;">Technical Toolkit</h2>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          <div class="r card p-6">
-            <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style="background:#EFF6FF;border:1px solid #DBEAFE;">
-              <svg class="w-5 h-5" style="color:#2563EB" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><circle cx="8" cy="16" r="1"/><circle cx="16" cy="16" r="1"/></svg>
-            </div>
-            <h3 class="font-semibold text-sm mb-2" style="color:#111827;">Robotics</h3>
-            <p class="text-xs leading-relaxed" style="color:#9CA3AF;">PID control, Arduino, IMU/encoder feedback, autonomous pathing</p>
-          </div>
-          <div class="r card p-6">
-            <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style="background:#EFF6FF;border:1px solid #DBEAFE;">
-              <svg class="w-5 h-5" style="color:#2563EB" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-            </div>
-            <h3 class="font-semibold text-sm mb-2" style="color:#111827;">3D Printing</h3>
-            <p class="text-xs leading-relaxed" style="color:#9CA3AF;">FDM manufacturing, TPU/PLA, rapid prototyping, lattice structures</p>
-          </div>
-          <div class="r card p-6">
-            <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style="background:#EFF6FF;border:1px solid #DBEAFE;">
-              <svg class="w-5 h-5" style="color:#2563EB" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="m12 19 7-7 3 3-7 7-3-3z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="m2 2 7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
-            </div>
-            <h3 class="font-semibold text-sm mb-2" style="color:#111827;">CAD Design</h3>
-            <p class="text-xs leading-relaxed" style="color:#9CA3AF;">SolidWorks, Onshape, parametric modeling, technical docs</p>
-          </div>
-          <div class="r card p-6">
-            <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style="background:#EFF6FF;border:1px solid #DBEAFE;">
-              <svg class="w-5 h-5" style="color:#2563EB" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
-            </div>
-            <h3 class="font-semibold text-sm mb-2" style="color:#111827;">Hardware Eng.</h3>
-            <p class="text-xs leading-relaxed" style="color:#9CA3AF;">Sensor integration, test fixtures, laser cutting, machining</p>
-          </div>
+          <div class="r card p-6"><div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style="background:#EFF6FF;border:1px solid #DBEAFE;"><svg class="w-5 h-5" style="color:#2563EB" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><circle cx="8" cy="16" r="1"/><circle cx="16" cy="16" r="1"/></svg></div><h3 class="font-semibold text-sm mb-2" style="color:#111827;">Robotics</h3><p class="text-xs leading-relaxed" style="color:#9CA3AF;">PID control, Arduino, IMU/encoder feedback, autonomous pathing</p></div>
+          <div class="r card p-6"><div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style="background:#EFF6FF;border:1px solid #DBEAFE;"><svg class="w-5 h-5" style="color:#2563EB" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div><h3 class="font-semibold text-sm mb-2" style="color:#111827;">3D Printing</h3><p class="text-xs leading-relaxed" style="color:#9CA3AF;">FDM manufacturing, TPU/PLA, rapid prototyping, lattice structures</p></div>
+          <div class="r card p-6"><div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style="background:#EFF6FF;border:1px solid #DBEAFE;"><svg class="w-5 h-5" style="color:#2563EB" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="m12 19 7-7 3 3-7 7-3-3z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="m2 2 7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div><h3 class="font-semibold text-sm mb-2" style="color:#111827;">CAD Design</h3><p class="text-xs leading-relaxed" style="color:#9CA3AF;">SolidWorks, Onshape, parametric modeling, technical docs</p></div>
+          <div class="r card p-6"><div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style="background:#EFF6FF;border:1px solid #DBEAFE;"><svg class="w-5 h-5" style="color:#2563EB" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div><h3 class="font-semibold text-sm mb-2" style="color:#111827;">Hardware Eng.</h3><p class="text-xs leading-relaxed" style="color:#9CA3AF;">Sensor integration, test fixtures, laser cutting, machining</p></div>
         </div>
         <div class="r mt-8 flex flex-wrap gap-2">
           <span class="tag">Python</span><span class="tag">MATLAB</span><span class="tag">Arduino / C</span><span class="tag">Excel</span><span class="tag">Laser Cutting</span><span class="tag">Machining</span><span class="tag">Git</span><span class="tag">Google Sheets</span>
@@ -341,7 +318,7 @@
 
     <div class="divider max-w-5xl mx-auto"></div>
 
-    <!-- EDUCATION -->
+    <!-- 05 EDUCATION -->
     <section class="py-24 sm:py-28" style="background:#fff;">
       <div class="max-w-5xl mx-auto px-6">
         <div class="r">
@@ -350,18 +327,18 @@
         </div>
         <div class="grid gap-6 md:grid-cols-2">
           <div class="r card p-7">
-            <p class="font-mono text-xs mb-4" style="color:#9CA3AF;font-family:'IBM Plex Mono',monospace;">Expected May 2029</p>
+            <p class="font-mono text-xs mb-4" style="color:#9CA3AF;font-family:'IBM Plex Mono',monospace;">Sep 2025 — May 2029</p>
             <h3 class="font-semibold text-xl mb-1" style="color:#111827;">The City College of New York</h3>
-            <p class="text-sm mb-5" style="color:#2563EB;">B.E. Mechanical Engineering — Grove School</p>
+            <p class="text-sm mb-4" style="color:#2563EB;">B.E. Mechanical Engineering — Grove School</p>
             <div class="metric mb-4">GPA: 4.00 / 4.00</div>
-            <p class="font-mono text-xs" style="color:#9CA3AF;">A+ in Calculus II, Physics I, Computer-Aided Drafting</p>
+            <p class="text-xs leading-relaxed mt-3" style="color:#6B7280;">A+ in Calculus II, Physics I, Computer-Aided Drafting. Interests: Formula SAE, Robotics, energy systems. Open to research and shop roles.</p>
           </div>
           <div class="r card p-7">
             <p class="font-mono text-xs mb-4" style="color:#9CA3AF;font-family:'IBM Plex Mono',monospace;">2021 — 2025</p>
             <h3 class="font-semibold text-xl mb-1" style="color:#111827;">Stuyvesant High School</h3>
-            <p class="text-sm mb-5" style="color:#2563EB;">High School Diploma</p>
+            <p class="text-sm mb-4" style="color:#2563EB;">High School Diploma</p>
             <div class="metric mb-4">NYC's Premier STEM School</div>
-            <p class="font-mono text-xs" style="color:#9CA3AF;">Mechanical Lead — StuyPulse Robotics (Team 694)</p>
+            <p class="text-xs leading-relaxed mt-3" style="color:#6B7280;">FRC Team 694 (Mechanical); Muslim Student Association; MIST NY Organizer; ShopnoAid (Founder); The Spectator Business Team. STEM coursework: Drafting &amp; 3D Modeling (99), Robotics (96/96/93), AP Physics 1 &amp; 2, AP Calculus AB. Avg ~91%.</p>
           </div>
         </div>
       </div>
@@ -369,13 +346,12 @@
 
   </div><!-- end home tab -->
 
-  <!-- ╔══════════════════════════════════════════════╗ -->
-  <!-- ║              RESUME TAB                       ║ -->
-  <!-- ╚══════════════════════════════════════════════╝ -->
+  <!-- ╔═══════════════════════════════════╗ -->
+  <!-- ║          RESUME TAB               ║ -->
+  <!-- ╚═══════════════════════════════════╝ -->
   <div id="page-resume" class="tab-page">
     <div class="max-w-4xl mx-auto px-6 pt-28 pb-24">
 
-      <!-- Header -->
       <div class="text-center mb-12">
         <h1 class="font-bold text-3xl sm:text-4xl" style="color:#111827;">MD Rahman</h1>
         <p class="mt-3 text-sm" style="color:#6B7280;">Jamaica, NY · <a href="mailto:mrahman141@citymail.cuny.edu" style="color:#2563EB;">mrahman141@citymail.cuny.edu</a> · 929-218-1905 · <a href="https://linkedin.com/in/mrahmanccny" target="_blank" style="color:#2563EB;">linkedin.com/in/mrahmanccny</a></p>
@@ -390,22 +366,19 @@
         <h2 class="res-h2">Education</h2>
         <div class="res-entry">
           <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-1">
-            <div>
-              <p class="res-title">City College of New York, Grove School of Engineering</p>
-              <p class="res-sub">B.E. in Mechanical Engineering</p>
-            </div>
-            <p class="res-date">Expected May 2029</p>
+            <div><p class="res-title">City College of New York, Grove School of Engineering</p><p class="res-sub">B.E. in Mechanical Engineering</p></div>
+            <p class="res-date">Sep 2025 — May 2029</p>
           </div>
           <p class="res-bullet">GPA: 4.00 / 4.00; A+ in Calculus II, Physics I, Computer-Aided Drafting</p>
+          <p class="res-bullet">Interests: Formula SAE, Robotics, and energy systems</p>
         </div>
         <div class="res-entry">
           <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-1">
-            <div>
-              <p class="res-title">Stuyvesant High School</p>
-              <p class="res-sub">High School Diploma</p>
-            </div>
+            <div><p class="res-title">Stuyvesant High School</p><p class="res-sub">High School Diploma</p></div>
             <p class="res-date">2021 — 2025</p>
           </div>
+          <p class="res-bullet">Activities: FRC Team 694 (Mechanical Subteam); Muslim Student Association; MIST New York Organizer; ShopnoAid (Founder); Big Sib; The Spectator Business Team</p>
+          <p class="res-bullet">STEM coursework: Drafting &amp; 3D Modeling (99); Intro &amp; Advanced Robotics (96/96/93); AP Physics 1 (96) &amp; AP Physics 2 (94); Honors Chemistry (97/95); AP Precalculus; AP Calculus AB. Cumulative average ~91%</p>
         </div>
       </div>
 
@@ -423,55 +396,82 @@
       <div class="res-section">
         <h2 class="res-h2">Experience</h2>
 
+        <!-- BioWearLab -->
         <div class="res-entry">
           <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-1">
-            <div>
-              <p class="res-title">BioWearLab — Undergraduate Research Assistant</p>
-              <p class="res-sub">Mechanical Engineering · New York, NY</p>
-            </div>
-            <p class="res-date">2026 — Present</p>
+            <div><p class="res-title">BioWearLab — Undergraduate Research Assistant</p><p class="res-sub">Mechanical Engineering · New York, NY · <a href="https://www.biowearlab.org/" target="_blank" class="ext-link">biowearlab.org ↗</a></p></div>
+            <p class="res-date">Jan 2026 — Present</p>
           </div>
-          <p class="res-bullet">Modeled body-centered cubic (BCC) lattice mechanical metamaterials in CAD for additively manufactured TPU–graphene pressure/force sensors; tuned unit-cell geometry to target gait-force ranges (0–50 N, 0–100 N).</p>
-          <p class="res-bullet">Designed and documented 5+ test setups (fixtures, mounts, rigs) that enabled iterative sensor characterization across multiple loading conditions.</p>
-          <p class="res-bullet">Generated data visualizations and summary tables in Python/MATLAB for weekly research updates; contributed figures used in an internal progress report.</p>
+          <p class="res-bullet">Modeled BCC lattice mechanical metamaterials in CAD for additively manufactured TPU–graphene pressure/force sensors; tuned unit-cell geometry for gait-force ranges (0–50 N, 0–100 N)</p>
+          <p class="res-bullet">Built and documented test setups (fixtures/mounts/rigs) and supported experiment data collection; maintained clear lab notes and versioned design files</p>
+          <p class="res-bullet">Analyzed results in Excel/Python/MATLAB; produced figures/tables for internal updates and weekly progress communication</p>
         </div>
 
+        <!-- Khan's Tutorial (3 roles) -->
         <div class="res-entry">
           <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-1">
-            <div>
-              <p class="res-title">Khan's Tutorial — Manager</p>
-              <p class="res-sub">Queens, NY</p>
-            </div>
-            <p class="res-date">2024 — Present</p>
+            <div><p class="res-title">Khan's Tutorial</p><p class="res-sub">Queens, NY · <a href="https://khanstutorial.com/" target="_blank" class="ext-link">khanstutorial.com ↗</a></p></div>
+            <p class="res-date">Jan 2025 — Present</p>
           </div>
-          <p class="res-bullet">Closed 10+ enrollments totaling $15,000+ in revenue through parent outreach, follow-ups, and consultative program placement.</p>
-          <p class="res-bullet">Managed operations for tutoring programs serving 90 students and 8 instructors, covering scheduling, room coverage, attendance tracking, and parent communication.</p>
-          <p class="res-bullet">Reduced missed sessions by 20% by implementing consistent reminders and roster hygiene via Dialpad, Stripe, and Pipedrive.</p>
-          <p class="res-bullet">Delivered SHSAT instruction with documented student improvement from 24% to 79% across diagnostics.</p>
+
+          <div class="res-subrole">
+            <p class="res-role">Branch Manager</p>
+            <p class="res-role-date">Jan 2026 — Present</p>
+            <p class="res-role-bullet">Managed day-to-day branch operations for tutoring programs supporting 90 students and 8 instructors (scheduling, room coverage, attendance, parent communication)</p>
+            <p class="res-role-bullet">Built weekly schedules, resolved conflicts, and standardized check-in/out routines to keep sessions on time</p>
+            <p class="res-role-bullet">Used Dialpad, Stripe, and Pipedrive to manage calls, payments, and pipeline tracking; reduced missed sessions by ~20% through consistent reminders and roster hygiene</p>
+            <p class="res-role-bullet">Closed enrollments totaling $15,000+ in revenue via parent outreach, follow-ups, and consultative program placement</p>
+          </div>
+
+          <div class="res-subrole">
+            <p class="res-role">Branch Coordinator</p>
+            <p class="res-role-date">Oct 2025 — Jan 2026</p>
+            <p class="res-role-bullet">Managed 100+ students and 5 tutors; scheduled 50+ hours of instruction weekly across multiple subjects</p>
+            <p class="res-role-bullet">Maintained class schedules (2/week during school year, 5/week in summer); streamlined check-in and parent communications</p>
+            <p class="res-role-bullet">Tracked student performance metrics and coordinated with tutors to optimize learning outcomes</p>
+          </div>
+
+          <div class="res-subrole">
+            <p class="res-role">SHSAT Instructor</p>
+            <p class="res-role-date">Jan 2025 — Oct 2025</p>
+            <p class="res-role-bullet">Taught SHSAT Math/ELA in small-group classes; delivered structured lessons, timed drills, and targeted strategy instruction</p>
+            <p class="res-role-bullet">Improved a student's diagnostic performance from 24% → 79% through focused skill-gap training and consistent review cycles</p>
+            <p class="res-role-bullet">Coordinated with branch staff to align pacing, homework, and parent updates</p>
+          </div>
         </div>
 
+        <!-- MIST -->
         <div class="res-entry">
           <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-1">
-            <div>
-              <p class="res-title">MIST New York — Tournament Organizer</p>
-              <p class="res-sub">Operations and Logistics · New York, NY</p>
-            </div>
-            <p class="res-date">2024 — Present</p>
+            <div><p class="res-title">MIST New York — Tournament Organizer</p><p class="res-sub">Operations &amp; Logistics · New York, NY · <a href="https://www.getmistified.com/" target="_blank" class="ext-link">getmistified.com ↗</a></p></div>
+            <p class="res-date">Sep 2025 — Present</p>
           </div>
-          <p class="res-bullet">Coordinated multi-venue events (100–400 capacity rooms); handled bookings, AV, permits, and on-site logistics.</p>
-          <p class="res-bullet">Built master schedules for 30+ events and staffed 80+ volunteers; created check-in, room reset, and safety SOPs to reduce day-of confusion.</p>
-          <p class="res-bullet">Delivered events 8% under budget through bulk purchasing and negotiated vendor pricing.</p>
+          <p class="res-bullet">Coordinated multi-venue event across 100–400 capacity rooms; negotiated bookings, AV, permits, and security for 900 attendees</p>
+          <p class="res-bullet">Built master schedule and run-of-show for 30 events; staffed 80 volunteers; created check-in, room-reset, and safety SOPs</p>
+          <p class="res-bullet">Managed budget and vendors (catering, printing, badges); delivered under budget by 8% via bulk purchasing</p>
         </div>
 
+        <!-- Rod's Snack Shack -->
         <div class="res-entry">
           <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-1">
-            <div>
-              <p class="res-title">Private Tutor — Calculus I and Physics</p>
-              <p class="res-sub">Jamaica, NY</p>
-            </div>
+            <div><p class="res-title">Rod's Snack Shack LLC — Vending Operations Assistant</p></div>
+            <p class="res-date">Sep 2024 — Jul 2025</p>
+          </div>
+          <p class="res-bullet">Serviced and restocked 4–6 vending machines on a weekly route; tracked inventory and expiry, cutting stockouts by ~27%</p>
+          <p class="res-bullet">Collected and reconciled cash/mobile payments; prepared end-of-day tallies with ~$1,300 average route revenue</p>
+          <p class="res-bullet">Performed basic maintenance (cleared coin/bill jams, replaced coils/motors, checked vend tests); escalated complex issues</p>
+          <p class="res-bullet">Reviewed sell-through data to adjust planograms and reorder levels; reduced stale/slow-moving SKUs by ~35%</p>
+          <p class="res-bullet">Coordinated with site managers for access, cleanliness, and safety; maintained logs and photos of machine status</p>
+        </div>
+
+        <!-- Private Tutor -->
+        <div class="res-entry">
+          <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-1">
+            <div><p class="res-title">Private Tutor — Calculus I and Physics</p><p class="res-sub">Jamaica, NY</p></div>
             <p class="res-date">2024 — Present</p>
           </div>
-          <p class="res-bullet">Improved a student's Calculus I exam performance from 54% to 93% through structured problem sets, targeted feedback loops, and weekly progress tracking.</p>
+          <p class="res-bullet">Provide one-on-one tutoring for high school and college students; build weekly study plans with targeted practice and error review</p>
+          <p class="res-bullet">Improved a student's Calculus I exam performance from 54% to 93% through structured problem sets, feedback loops, and progress tracking</p>
         </div>
       </div>
 
@@ -480,21 +480,36 @@
         <h2 class="res-h2">Projects</h2>
         <div class="res-entry">
           <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-1">
-            <div>
-              <p class="res-title">Competition Robot — StuyPulse 694</p>
-              <p class="res-sub">Mechanical Lead · New York, NY</p>
-            </div>
+            <div><p class="res-title">Competition Robot — StuyPulse 694</p><p class="res-sub">Mechanical Lead · New York, NY</p></div>
             <p class="res-date">2024 — 2025</p>
           </div>
-          <p class="res-bullet">Designed drivetrain and gearbox in SolidWorks/Onshape; reduced mass by 12% by pocketing plates and adding ribbed features; verified stiffness via hand calculations and bench load testing.</p>
-          <p class="res-bullet">Prototyped intake/manipulator via FDM and tuned PID using encoder/IMU feedback; improved autonomous path error to ±3 cm.</p>
+          <p class="res-bullet">Designed drivetrain and gearbox in SolidWorks/Onshape; reduced mass by 12% by pocketing plates and adding ribbed features; verified stiffness via hand calculations and bench load testing</p>
+          <p class="res-bullet">Prototyped intake/manipulator via FDM and tuned PID using encoder/IMU feedback; improved autonomous path error to ±3 cm</p>
+        </div>
+        <div class="res-entry">
+          <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-1">
+            <div><p class="res-title">Reverse Engineering a Motorized 360° Turntable</p><p class="res-sub">ME 145 · CCNY Grove School of Engineering</p></div>
+            <p class="res-date">Sep — Dec 2025</p>
+          </div>
+          <p class="res-bullet">Reverse-engineered a low-cost rotating display stand by disassembling, measuring, and rebuilding the design in CAD</p>
+          <p class="res-bullet">Created measurement-based 2D sketches/technical drawings and converted them into parametric SolidWorks models (parts + assembly + section view)</p>
+          <p class="res-bullet">Identified mechanical failure points (top-plate wobble, gear slip, limited load capacity)</p>
+          <p class="res-bullet">Designed improvements (larger gear teeth/face width, thicker hub + fillets), 3D printed revised parts, and validated fit/operation with reduced wobble and more consistent engagement</p>
+        </div>
+        <div class="res-entry">
+          <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-1">
+            <div><p class="res-title">Propeller Hydrodynamics Project</p><p class="res-sub">Student Researcher · New York, NY</p></div>
+            <p class="res-date">2024</p>
+          </div>
+          <p class="res-bullet">Modeled and FDM 3D printed multiple propeller geometries in Onshape; iterated pitch/geometry for comparison</p>
+          <p class="res-bullet">Field tested on an electric boat; recorded speed and power data to evaluate efficiency and summarize results in a research-style report</p>
         </div>
       </div>
 
     </div>
   </div><!-- end resume tab -->
 
-  <!-- ══════ FOOTER (shared) ══════ -->
+  <!-- FOOTER -->
   <footer class="py-16" style="background:#fff;border-top:1px solid #F3F4F6;">
     <div class="max-w-5xl mx-auto px-6">
       <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
@@ -503,7 +518,7 @@
           <p class="text-sm mt-1" style="color:#9CA3AF;">Let's talk about what I can build for your team.</p>
         </div>
         <div class="flex items-center gap-6">
-          <a href="mailto:mrahman141@citymail.cuny.edu" class="text-sm flex items-center gap-2 transition-colors" style="color:#2563EB;">
+          <a href="mailto:mrahman141@citymail.cuny.edu" class="text-sm flex items-center gap-2" style="color:#2563EB;">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>
             mrahman141@citymail.cuny.edu
           </a>
@@ -518,12 +533,11 @@
   </footer>
 
   <script>
-    // Tab switching
-    function showTab(name) {
+    function showTab(name){
       document.querySelectorAll('.tab-page').forEach(function(p){p.classList.remove('active')});
       document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active')});
-      var page = document.getElementById('page-'+name);
-      if(page) page.classList.add('active');
+      var page=document.getElementById('page-'+name);
+      if(page)page.classList.add('active');
       document.querySelectorAll('.tab-btn[data-tab="'+name+'"]').forEach(function(b){b.classList.add('active')});
       window.scrollTo({top:0,behavior:'smooth'});
       cN();
@@ -531,16 +545,12 @@
     document.querySelectorAll('.tab-btn[data-tab]').forEach(function(btn){
       btn.addEventListener('click',function(){showTab(this.getAttribute('data-tab'))});
     });
-
-    // Mobile nav
     var ham=document.getElementById('hamBtn'),cl=document.getElementById('closeBtn'),mn=document.getElementById('mobNav'),mo=document.getElementById('mobOverlay');
     function oN(){mn.classList.add('open');mo.classList.add('open')}
     function cN(){mn.classList.remove('open');mo.classList.remove('open')}
     ham.addEventListener('click',oN);
     cl.addEventListener('click',cN);
     mo.addEventListener('click',cN);
-
-    // Scroll reveal
     var els=document.querySelectorAll('.r');
     els.forEach(function(el){el.classList.add('hi')});
     var q=[],t=false;

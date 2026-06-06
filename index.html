@@ -1675,12 +1675,47 @@
     }
 
     .resume-entry h3 {
-      font-size: 17px;
+      font-size: 19px;
     }
 
     .resume-entry li {
-      font-size: 13px;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .resume-entry .subtitle,
+    .resume-date {
+      font-size: 12px;
+    }
+
+    .skill-lines p {
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .resume-subrole h4 {
+      font-size: 16px;
+    }
+
+    .resume-subrole p {
+      font-size: 14px;
       line-height: 1.65;
+    }
+
+    .resume-header p {
+      font-size: 12px;
+    }
+
+    .resume-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      align-items: stretch;
+    }
+
+    .resume-actions .resume-download {
+      text-align: center;
+      text-decoration: none;
     }
 
     .resume-subrole {
@@ -1795,6 +1830,10 @@
 
       .resume-header {
         padding: 24px;
+      }
+
+      .resume-actions {
+        align-items: flex-start;
       }
     }
 
@@ -1987,6 +2026,7 @@
       <nav class="desktop-navigation" aria-label="Primary navigation">
         <button class="view-trigger is-active" type="button" data-view="home">Portfolio</button>
         <button class="view-trigger" type="button" data-view="resume">Resume</button>
+        <a class="header-resume" href="Resume_MD_Rahman.pdf" target="_blank" rel="noreferrer">PDF Resume</a>
       </nav>
       <button class="menu-button" type="button" aria-controls="mobile-menu" aria-expanded="false">Menu</button>
     </div>
@@ -2001,6 +2041,7 @@
     <nav aria-label="Mobile navigation">
       <button class="view-trigger is-active" type="button" data-view="home">Portfolio</button>
       <button class="view-trigger" type="button" data-view="resume">Resume</button>
+      <a class="header-resume" href="Resume_MD_Rahman.pdf" target="_blank" rel="noreferrer">PDF Resume</a>
     </nav>
   </aside>
 
@@ -2220,7 +2261,10 @@
             <h1>MD Rahman</h1>
             <p>Jamaica, NY<br><a class="linked-name" href="mailto:mrahman141@citymail.cuny.edu">mrahman141@citymail.cuny.edu</a> / 929-218-1905<br><a class="linked-name" href="https://linkedin.com/in/mrahmanccny" target="_blank" rel="noreferrer">linkedin.com/in/mrahmanccny</a></p>
           </div>
-          <button class="resume-download" type="button" data-print-resume>Print / save PDF</button>
+          <div class="resume-actions">
+            <a class="resume-download" href="Resume_MD_Rahman.pdf" download>Download PDF</a>
+            <button class="resume-download" type="button" data-print-resume>Print / save PDF</button>
+          </div>
         </header>
 
         <section class="resume-section" id="resume-education" data-outline-section>
@@ -2507,43 +2551,4 @@
     menuCloseButtons.forEach((button) => button.addEventListener("click", closeMenu));
 
     document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") {
-        closeMenu();
-      }
-    });
-
-    document.querySelectorAll("[data-print-resume]").forEach((button) => {
-      button.addEventListener("click", () => window.print());
-    });
-
-    window.addEventListener("scroll", queueOutlineUpdate, { passive: true });
-    window.addEventListener("resize", queueOutlineUpdate);
-    updateOutline();
-
-    const revealObserver = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) {
-            return;
-          }
-
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        });
-      },
-      {
-        threshold: 0.12,
-        rootMargin: "0px 0px -8% 0px"
-      }
-    );
-
-    document.querySelectorAll(".reveal").forEach((element) => {
-      if (reducedMotion) {
-        element.classList.add("is-visible");
-      } else {
-        revealObserver.observe(element);
-      }
-    });
-  </script>
-</body>
-</html>
+      if (event

@@ -2017,6 +2017,175 @@
         display: none !important;
       }
     }
+
+    .project-media-preview {
+      position: relative;
+      min-height: 285px;
+      overflow: hidden;
+      border-radius: 12px;
+      background: #e8effc;
+    }
+
+    .project-media-preview img {
+      width: 100%;
+      height: 100%;
+      min-height: 285px;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .project-media-preview::after {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(18, 32, 58, .78), transparent 48%);
+      content: "";
+      pointer-events: none;
+    }
+
+    .project-media-preview .visual-caption {
+      color: var(--white);
+    }
+
+    .media-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .media-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 10px 14px;
+      border: 1px solid var(--signal);
+      border-radius: 8px;
+      background: var(--white);
+      color: var(--signal);
+      cursor: pointer;
+      font-family: var(--body);
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background .2s ease, color .2s ease;
+    }
+
+    .media-button:hover {
+      background: var(--signal);
+      color: var(--white);
+    }
+
+    .media-button.primary {
+      background: var(--signal);
+      color: var(--white);
+    }
+
+    .media-button.primary:hover {
+      background: #183f9f;
+    }
+
+    .asset-dialog {
+      width: min(1180px, calc(100vw - 32px));
+      height: min(820px, calc(100vh - 32px));
+      padding: 0;
+      overflow: hidden;
+      border: 1px solid #42536f;
+      border-radius: 14px;
+      background: #101827;
+      color: var(--white);
+      box-shadow: 0 30px 90px rgba(7, 13, 25, .45);
+    }
+
+    .asset-dialog::backdrop {
+      background: rgba(7, 13, 25, .78);
+      backdrop-filter: blur(5px);
+    }
+
+    .asset-dialog-header {
+      min-height: 62px;
+      padding: 12px 14px 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      border-bottom: 1px solid #35425a;
+    }
+
+    .asset-dialog-header h2 {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.3;
+    }
+
+    .asset-dialog-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .asset-dialog-link,
+    .asset-dialog-close {
+      padding: 8px 11px;
+      border: 1px solid #60708d;
+      border-radius: 7px;
+      background: transparent;
+      color: var(--white);
+      cursor: pointer;
+      font: 600 11px/1.2 var(--body);
+      text-decoration: none;
+    }
+
+    .asset-dialog-link:hover,
+    .asset-dialog-close:hover {
+      border-color: #8eb1ff;
+      background: #213354;
+    }
+
+    .asset-dialog-content {
+      height: calc(100% - 62px);
+      display: grid;
+      place-items: center;
+      background: #111b2d;
+    }
+
+    .asset-dialog-content iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: var(--white);
+    }
+
+    .asset-dialog-content img {
+      max-width: 100%;
+      max-height: 100%;
+      display: block;
+      object-fit: contain;
+    }
+
+    @media (max-width: 650px) {
+      .asset-dialog {
+        width: calc(100vw - 16px);
+        height: calc(100vh - 16px);
+      }
+
+      .asset-dialog-header {
+        min-height: 106px;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .asset-dialog-content {
+        height: calc(100% - 106px);
+      }
+    }
+
+    @media print {
+      .asset-dialog {
+        display: none !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -2133,8 +2302,8 @@
             </article>
 
             <article class="project">
-              <div class="project-visual turntable reveal" aria-label="Abstract turntable mechanism illustration">
-                <div class="turntable-mark"></div>
+              <div class="project-media-preview reveal">
+                <img src="SolidworksDrawing.jpeg" alt="SolidWorks technical drawing for the reverse-engineered motorized turntable">
                 <div class="visual-caption"><span>ME 145</span><span>Reverse engineering</span></div>
               </div>
               <div class="project-copy reveal">
@@ -2147,6 +2316,11 @@
                   <li>Achieved steadier rotation and more consistent gear engagement.</li>
                 </ul>
                 <p class="capabilities">Reverse engineering / GD&amp;T / technical drawing / FDM</p>
+                <div class="media-actions" aria-label="Turntable project files">
+                  <button class="media-button" type="button" data-asset-type="image" data-asset-src="SolidworksDrawing.jpeg" data-asset-title="SolidWorks turntable drawing">View drawing</button>
+                  <button class="media-button primary" type="button" data-asset-type="pdf" data-asset-src="ReverseEngineeringTurntableSlides.pdf" data-asset-title="Reverse Engineering Turntable slide deck">Open slide deck</button>
+                  <a class="media-button" href="ReverseEngineeringTurntableSlides.pdf" download>Download slides</a>
+                </div>
               </div>
             </article>
 
@@ -2158,13 +2332,12 @@
               <div class="project-copy reveal">
                 <h3>Propeller hydrodynamics</h3>
                 <p class="project-meta">Student Researcher / 2024</p>
-                <p>Modeled and FDM printed multiple propeller geometries, iterating pitch and blade shape before field testing them on a small electric boat.</p>
                 <ul class="line-list">
-                  <li>Recorded speed and power data across design variants.</li>
-                  <li>Compared geometry against measured efficiency.</li>
-                  <li>Presented findings in a research-style technical report.</li>
+                  <li>Modeled multiple propeller geometries in Onshape, iterating on pitch and blade curvature.</li>
+                  <li>Fabricated physical prototypes using FDM 3D printing in PLA.</li>
+                  <li>Evaluated physical tolerances and print orientations for complex swept geometries.</li>
                 </ul>
-                <p class="capabilities">Onshape / hydrodynamics / data analysis / field testing</p>
+                <p class="capabilities">Onshape / FDM 3D printing / PLA / design for additive manufacturing</p>
               </div>
             </article>
           </div>
@@ -2386,6 +2559,10 @@
             <div>
               <h3>Reverse Engineering a Motorized 360° Turntable</h3>
               <p class="subtitle">ME 145 / CCNY Grove School</p>
+              <p class="resource-links">
+                <a href="SolidworksDrawing.jpeg" target="_blank">SolidWorks drawing</a>
+                <a href="ReverseEngineeringTurntableSlides.pdf" target="_blank">Project slide deck</a>
+              </p>
             </div>
             <span class="resume-date">Sep — Dec 2025</span>
             <ul>
@@ -2400,7 +2577,9 @@
             </div>
             <span class="resume-date">2024</span>
             <ul>
-              <li>Modeled, printed, and field-tested propeller variants; compared speed and power data in a technical report.</li>
+              <li>Modeled multiple propeller geometries in Onshape, iterating on pitch and blade curvature.</li>
+              <li>Fabricated physical prototypes using FDM 3D printing in PLA.</li>
+              <li>Evaluated physical tolerances and print orientations for complex swept geometries.</li>
             </ul>
           </div>
         </section>
@@ -2432,6 +2611,21 @@
     </div>
   </main>
 
+  <dialog class="asset-dialog" id="asset-dialog" aria-labelledby="asset-dialog-title">
+    <header class="asset-dialog-header">
+      <h2 id="asset-dialog-title">Project file</h2>
+      <div class="asset-dialog-actions">
+        <a class="asset-dialog-link" id="asset-dialog-open" href="#" target="_blank" rel="noreferrer">Open in new tab</a>
+        <a class="asset-dialog-link" id="asset-dialog-download" href="#" download>Download</a>
+        <button class="asset-dialog-close" type="button" data-close-asset>Close</button>
+      </div>
+    </header>
+    <div class="asset-dialog-content">
+      <img id="asset-dialog-image" src="" alt="" hidden>
+      <iframe id="asset-dialog-pdf" src="about:blank" title="PDF project viewer" hidden></iframe>
+    </div>
+  </dialog>
+
   <footer class="site-footer">
     <div class="footer-inner">
       <h2>Let's build something that moves.</h2>
@@ -2452,9 +2646,16 @@
     const menuButton = document.querySelector(".menu-button");
     const menuCloseButtons = document.querySelectorAll("[data-menu-close]");
     const outlines = document.querySelectorAll("[data-outline]");
+    const assetDialog = document.getElementById("asset-dialog");
+    const assetDialogTitle = document.getElementById("asset-dialog-title");
+    const assetDialogImage = document.getElementById("asset-dialog-image");
+    const assetDialogPdf = document.getElementById("asset-dialog-pdf");
+    const assetDialogOpen = document.getElementById("asset-dialog-open");
+    const assetDialogDownload = document.getElementById("asset-dialog-download");
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     let currentView = "home";
     let outlineUpdateQueued = false;
+    let assetTrigger = null;
 
     function closeMenu() {
       menu.classList.remove("is-open");
@@ -2558,6 +2759,52 @@
 
     document.querySelectorAll("[data-print-resume]").forEach((button) => {
       button.addEventListener("click", () => window.print());
+    });
+
+    function closeAssetDialog() {
+      assetDialog.close();
+      assetDialogPdf.src = "about:blank";
+      assetDialogImage.src = "";
+      assetTrigger?.focus();
+    }
+
+    document.querySelectorAll("[data-asset-src]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const assetSource = button.dataset.assetSrc;
+        const assetType = button.dataset.assetType;
+        const assetTitle = button.dataset.assetTitle;
+
+        assetTrigger = button;
+        assetDialogTitle.textContent = assetTitle;
+        assetDialogOpen.href = assetSource;
+        assetDialogDownload.href = assetSource;
+        assetDialogImage.hidden = assetType !== "image";
+        assetDialogPdf.hidden = assetType !== "pdf";
+
+        if (assetType === "image") {
+          assetDialogImage.src = assetSource;
+          assetDialogImage.alt = assetTitle;
+        } else {
+          assetDialogPdf.src = `${assetSource}#view=FitH`;
+        }
+
+        assetDialog.showModal();
+      });
+    });
+
+    document.querySelectorAll("[data-close-asset]").forEach((button) => {
+      button.addEventListener("click", closeAssetDialog);
+    });
+
+    assetDialog.addEventListener("click", (event) => {
+      if (event.target === assetDialog) {
+        closeAssetDialog();
+      }
+    });
+
+    assetDialog.addEventListener("cancel", (event) => {
+      event.preventDefault();
+      closeAssetDialog();
     });
 
     window.addEventListener("scroll", queueOutlineUpdate, { passive: true });

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="MD Rahman's mechanical engineering and robotics portfolio.">
   <title>MD Rahman | Mechanical Engineer</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232457d6'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-family='Arial,sans-serif' font-size='24' font-weight='700' fill='white'%3EMR%3C/text%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='12'%20fill='%232457d6'/%3E%3Cg%20fill='none'%20stroke='white'%20stroke-width='4'%3E%3Ccircle%20cx='32'%20cy='32'%20r='9'/%3E%3Cpath%20d='M32%2014v6M32%2044v6M14%2032h6M44%2032h6M19.3%2019.3l4.2%204.2M40.5%2040.5l4.2%204.2M44.7%2019.3l-4.2%204.2M23.5%2040.5l-4.2%204.2'/%3E%3C/g%3E%3C/svg%3E">
   <style>
     :root {
       --paper: #f5f7fb;
@@ -1511,6 +1511,44 @@
       font-weight: 750;
     }
 
+    /* Clean text-only project card (used when no media is ready yet) */
+    .project.is-textcard {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .project.is-textcard .project-copy {
+      padding-right: 0;
+    }
+
+    .project-tagstrip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 18px;
+    }
+
+    .project-tagstrip span {
+      padding: 5px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--paper);
+      color: var(--signal);
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .operations-band {
+      padding: 70px;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 50px;
+      background: var(--ink);
+      color: var(--paper);
+    }
+
     .operations-band {
       width: var(--page);
       margin: 24px auto;
@@ -2195,7 +2233,7 @@
       <nav class="desktop-navigation" aria-label="Primary navigation">
         <button class="view-trigger is-active" type="button" data-view="home">Portfolio</button>
         <button class="view-trigger" type="button" data-view="resume">Resume</button>
-        <a class="header-resume" href="Resume_MD_Rahman_Engineering.PDF" target="_blank" rel="noreferrer">PDF Resume</a>
+        <a class="header-resume" href="Resume_MD_Rahman_Engineering.pdf" target="_blank" rel="noreferrer">PDF Resume</a>
       </nav>
       <button class="menu-button" type="button" aria-controls="mobile-menu" aria-expanded="false">Menu</button>
     </div>
@@ -2210,7 +2248,7 @@
     <nav aria-label="Mobile navigation">
       <button class="view-trigger is-active" type="button" data-view="home">Portfolio</button>
       <button class="view-trigger" type="button" data-view="resume">Resume</button>
-      <a class="header-resume" href="Resume_MD_Rahman_Engineering.PDF" target="_blank" rel="noreferrer">PDF Resume</a>
+      <a class="header-resume" href="Resume_MD_Rahman_Engineering.pdf" target="_blank" rel="noreferrer">PDF Resume</a>
     </nav>
   </aside>
 
@@ -2288,14 +2326,14 @@
             <h2 id="projects-title">Selected engineering projects</h2>
           </div>
           <div class="projects">
-            <article class="project">
-              <div class="project-visual robot reveal" aria-label="Abstract competition robot illustration">
-                <div class="robot-mark"></div>
-                <div class="visual-caption"><span>StuyPulse 694</span><span>Drivetrain study</span></div>
-              </div>
+            <article class="project is-textcard">
               <div class="project-copy reveal">
                 <h3><a class="linked-name" href="https://stuypulse.com/" target="_blank" rel="noreferrer">Competition robot</a></h3>
                 <p class="project-meta">Mechanical Lead / 2024 — 2025</p>
+                <div class="project-tagstrip">
+                  <span>StuyPulse 694</span>
+                  <span>Drivetrain study</span>
+                </div>
                 <p>The previous drivetrain was overweight and flexed under competition loads. I redesigned the drivetrain and gearbox, pocketed plates, added ribbed features, and verified stiffness with hand calculations and bench testing.</p>
                 <p class="capabilities">SolidWorks / Onshape / FDM / PID control / Arduino</p>
               </div>
@@ -2324,14 +2362,14 @@
               </div>
             </article>
 
-            <article class="project">
-              <div class="project-visual propeller reveal" aria-label="Abstract propeller illustration">
-                <div class="propeller-mark"></div>
-                <div class="visual-caption"><span>Hydrodynamics</span><span>Field testing</span></div>
-              </div>
+            <article class="project is-textcard">
               <div class="project-copy reveal">
                 <h3>Propeller hydrodynamics</h3>
                 <p class="project-meta">Student Researcher / 2024</p>
+                <div class="project-tagstrip">
+                  <span>Hydrodynamics</span>
+                  <span>Field testing</span>
+                </div>
                 <ul class="line-list">
                   <li>Modeled multiple propeller geometries in Onshape, iterating on pitch and blade curvature.</li>
                   <li>Fabricated physical prototypes using FDM 3D printing in PLA.</li>
@@ -2435,7 +2473,7 @@
             <p>Jamaica, NY<br><a class="linked-name" href="mailto:mrahman141@citymail.cuny.edu">mrahman141@citymail.cuny.edu</a> / 929-218-1905<br><a class="linked-name" href="https://linkedin.com/in/mrahmanccny" target="_blank" rel="noreferrer">linkedin.com/in/mrahmanccny</a></p>
           </div>
           <div class="resume-actions">
-            <a class="resume-download" href="Resume_MD_Rahman_Engineering.PDF" download>Download PDF</a>
+            <a class="resume-download" href="Resume_MD_Rahman_Engineering.pdf" download>Download PDF</a>
             <button class="resume-download" type="button" data-print-resume>Print / save PDF</button>
           </div>
         </header>
@@ -2537,7 +2575,7 @@
             </div>
             <span class="resume-date">2024 — present</span>
             <ul>
-              <li>Build individualized study plans and improved one student's Calculus I exam performance from 54% to 93%.</li>
+              <li>Built individualized study plans and improved one student's Calculus I exam performance from 54% to 93%.</li>
             </ul>
           </div>
         </section>

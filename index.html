@@ -1350,6 +1350,20 @@
       background: #173b75;
     }
 
+    .research-stack {
+      display: grid;
+      gap: clamp(20px, 3vw, 32px);
+    }
+
+    .research-layout.is-flipped .engineering-plate {
+      order: 2;
+    }
+
+    .engineering-plate.is-spec .plate-value {
+      right: 24px;
+      font-size: clamp(28px, 3.6vw, 46px);
+    }
+
     .engineering-plate::before {
       opacity: .2;
       background-size: 58px 100px;
@@ -2293,7 +2307,7 @@
           </div>
           <div class="hero-side">
             <p class="hero-intro">
-              I design, prototype, and test mechanical systems, from <strong>wearable force sensors</strong> to competition robots.
+              I design, prototype, and test mechanical systems &mdash; a <strong>13.56 MHz RF plasma reactor</strong> at CarbonCLAIR, <strong>wearable force sensors</strong> at BioWearLab, and a 120 lb competition robot before that.
             </p>
             <div class="hero-links">
               <a class="text-link" href="mailto:MD.RAHMAN960@login.cuny.edu">Email me</a>
@@ -2305,24 +2319,46 @@
 
         <section class="portfolio-section" id="research" data-outline-section aria-labelledby="research-title">
           <div class="section-heading reveal">
-            <p class="section-kicker">Current research</p>
-            <h2 id="research-title">Wearable force sensor research</h2>
+            <p class="section-kicker">Current work</p>
+            <h2 id="research-title">Hardware I am building right now</h2>
           </div>
-          <div class="research-layout">
-            <div class="engineering-plate reveal" aria-label="Abstract lattice structure illustration">
-              <span class="plate-label">BCC lattice / TPU graphene / force sensor</span>
-              <strong class="plate-value">0–100N</strong>
+          <div class="research-stack">
+            <div class="research-layout">
+              <div class="engineering-plate is-spec reveal" aria-label="Abstract vacuum chamber illustration">
+                <span class="plate-label">RF plasma reactor / argon / 30–150 mTorr</span>
+                <strong class="plate-value">13.56 MHz</strong>
+              </div>
+              <div class="research-copy reveal">
+                <h3>CarbonCLAIR</h3>
+                <p class="project-meta">Engineering Intern<br>June 2026 — present</p>
+                <p>Designing the vacuum chamber and droplet diagnostics for a capacitively coupled RF plasma reactor at an environmental technology startup.</p>
+                <ul class="line-list">
+                  <li>Sized chamber clearances and electrode gap from Debye length, verifying 8–25x buckling margin under 1 atm.</li>
+                  <li>Assembled a 20+ component SolidWorks model of the 6 in. cube chamber, flanges, feedthroughs, and viewports.</li>
+                  <li>Caught a 1/4-20 fastener interference inside a shared corner post and respecified hardware before ordering.</li>
+                  <li>Sourced the procurement BOM across 10+ vacuum suppliers, catching two feedthroughs specified at 450 kHz rather than 13.56 MHz.</li>
+                  <li>Built a laser–photodiode droplet detector whose firmware triggers a Photron high-speed camera at droplet entry.</li>
+                </ul>
+                <p class="capabilities">SolidWorks / vacuum design / BOM sourcing / Arduino / sensor integration</p>
+              </div>
             </div>
-            <div class="research-copy reveal">
-              <h3><a class="linked-name" href="https://www.biowearlab.org/" target="_blank" rel="noreferrer">BioWearLab</a></h3>
-              <p class="project-meta">Undergraduate Research Assistant<br>January 2026 — present</p>
-              <p>Designing tunable metamaterial lattice architectures for body-mounted force sensors used in gait analysis and rehabilitation exoskeletons.</p>
-              <ul class="line-list">
-                <li>Modeled BCC lattice geometries in SolidWorks for targeted gait-force ranges.</li>
-                <li>Built fixtures, mounts, and test rigs for repeatable data collection.</li>
-                <li>Analyzed experimental results in Python, MATLAB, and Excel.</li>
-              </ul>
-              <p class="capabilities">SolidWorks / metamaterials / 3D printing / Python / MATLAB</p>
+            <div class="research-layout is-flipped">
+              <div class="engineering-plate reveal" aria-label="Abstract lattice structure illustration">
+                <span class="plate-label">BCC lattice / TPU graphene / force sensor</span>
+                <strong class="plate-value">0–100N</strong>
+              </div>
+              <div class="research-copy reveal">
+                <h3><a class="linked-name" href="https://www.biowearlab.org/" target="_blank" rel="noreferrer">BioWearLab</a></h3>
+                <p class="project-meta">Undergraduate Research Assistant<br>January 2026 — present</p>
+                <p>Designing tunable metamaterial lattice architectures for body-mounted force sensors used in gait analysis and rehabilitation exoskeletons.</p>
+                <ul class="line-list">
+                  <li>Modeled BCC lattice geometries in SolidWorks across 8+ iterations for 0–50 N and 0–100 N gait-force ranges.</li>
+                  <li>Landed within 5% of target stiffness on 3D-printed TPU–graphene sensors.</li>
+                  <li>Designed and printed test fixtures, compression mounts, and loading rigs on a Bambu Lab P1P at ±0.2 mm.</li>
+                  <li>Maintained Python and MATLAB pipelines over 500+ data points per test cycle, cutting weekly reporting time roughly 40%.</li>
+                </ul>
+                <p class="capabilities">SolidWorks / metamaterials / 3D printing / Python / MATLAB</p>
+              </div>
             </div>
           </div>
         </section>
@@ -2342,6 +2378,12 @@
                   <span>Drivetrain study</span>
                 </div>
                 <p>The previous drivetrain was overweight and flexed under competition loads. I redesigned the drivetrain and gearbox, pocketed plates, added ribbed features, and verified stiffness with hand calculations and bench testing.</p>
+                <ul class="line-list">
+                  <li>Cut 4.8 lbs (12%) from a 120 lb robot through plate pocketing and ribbed geometry.</li>
+                  <li>Tuned PID gains across 15+ iterations on encoder and IMU feedback.</li>
+                  <li>Reached ±3 cm autonomous path error over a 5 m traverse.</li>
+                  <li>Integrated FDM-printed intake and manipulator assemblies onto the new frame.</li>
+                </ul>
                 <p class="capabilities">SolidWorks / Onshape / FDM / PID control / Arduino</p>
               </div>
             </article>
@@ -2395,12 +2437,17 @@
           <h2 id="operations-title">Experience managing people and systems</h2>
         </div>
         <div class="operations-copy">
-          <p>As Branch Manager at <a class="linked-name" href="https://khanstutorial.com/" target="_blank" rel="noreferrer">Khan's Tutorial</a>, I run the daily operating system behind programs serving students, instructors, and families across Queens.</p>
+          <p>As Branch Manager at <a class="linked-name" href="https://khanstutorial.com/" target="_blank" rel="noreferrer">Khan's Tutorial</a>, I run the daily operating system behind programs serving students, instructors, and families across Queens — enrollment, scheduling, instructor coverage, and the attendance tracking that keeps students in seats.</p>
+          <p>As Associate Chair at <a class="linked-name" href="https://www.getmistified.com/" target="_blank" rel="noreferrer">MIST New York</a>, I direct day-of logistics for a tournament that fills a university campus: volunteer deployment, room reassignments, vendors, AV, and the awards ceremony that closes it out.</p>
           <div class="operations-stats">
             <div><strong>$30K+</strong><span>Revenue closed</span></div>
             <div><strong>180+</strong><span>Students managed</span></div>
+            <div><strong>50+</strong><span>Enrollments closed</span></div>
             <div><strong>20%</strong><span>Fewer missed sessions</span></div>
-            <div><strong>24→79%</strong><span>SHSAT score growth</span></div>
+            <div><strong>1,150</strong><span>Tournament attendees</span></div>
+            <div><strong>80+</strong><span>Volunteers coordinated</span></div>
+            <div><strong>30+</strong><span>Competition events</span></div>
+            <div><strong>8%</strong><span>Under budget</span></div>
           </div>
         </div>
       </section>
@@ -2415,27 +2462,27 @@
             <article class="toolkit-item">
               <small>A / 05</small>
               <h3>CAD design</h3>
-              <p>SolidWorks, Onshape, parametric modeling, assemblies, section views, and technical documentation.</p>
+              <p>SolidWorks, Onshape, parametric modeling, multi-part assemblies, interference checks, section views, and dimensioned engineering drawings.</p>
             </article>
             <article class="toolkit-item">
               <small>B / 05</small>
               <h3>Fabrication</h3>
-              <p>FDM printing, TPU and PLA, laser cutting, basic machining, rapid prototyping.</p>
+              <p>FDM printing on a Bambu Lab P1P at ±0.2 mm, TPU and PLA, design for additive manufacturing, laser cutting, basic machining.</p>
             </article>
             <article class="toolkit-item">
               <small>C / 05</small>
               <h3>Robotics</h3>
-              <p>PID control, Arduino, embedded C, IMU and encoder feedback, autonomous pathing.</p>
+              <p>PID tuning, Arduino and embedded C, IMU and encoder feedback, beam-break sensing, camera triggering, autonomous pathing.</p>
             </article>
             <article class="toolkit-item">
               <small>D / 05</small>
               <h3>Experimentation</h3>
-              <p>Sensor integration, fixture design, test planning, data collection, and lab documentation.</p>
+              <p>Test fixture design, bench load testing, sensor integration, data acquisition, BOM development, vendor sourcing, and lab documentation.</p>
             </article>
             <article class="toolkit-item">
               <small>E / 05</small>
               <h3>Analysis</h3>
-              <p>Python, MATLAB, Excel, Google Sheets, visualization, reporting, and versioned design files.</p>
+              <p>Python (NumPy, Matplotlib), MATLAB, Excel, Git, force-displacement analysis, reporting, and versioned design files.</p>
             </article>
           </div>
         </section>
@@ -2450,7 +2497,7 @@
               <time datetime="2025-09">2025 — 2029</time>
               <div>
                 <h3><a class="linked-name" href="https://www.ccny.cuny.edu/engineering" target="_blank" rel="noreferrer">The City College of New York</a></h3>
-                <p>B.E. Mechanical Engineering, Grove School. Dean's List, S. Jay Levy Fellowship, and the Celia Portnoy Memorial Scholarship. A+ coursework in Engineering Mechanics I / Statics, Computer-Aided Drafting, and University Physics I and II.</p>
+                <p>B.E. Mechanical Engineering, Grove School. Dean's List, S. Jay Levy Fellowship, and the Celia Portnoy Memorial Scholarship. A+ coursework in Engineering Mechanics I / Statics, Computer-Aided Drafting, and University Physics I and II. Currently taking Mechanics of Materials, Dynamics, Computer Methods in Engineering, and Differential Equations.</p>
               </div>
               <div class="education-meta">
                 <span class="score">4.00 GPA</span>
@@ -2461,7 +2508,7 @@
               <time datetime="2021">2021 — 2025</time>
               <div>
                 <h3><a class="linked-name" href="https://www.schools.nyc.gov/schools/M475" target="_blank" rel="noreferrer">Stuyvesant High School</a></h3>
-                <p>FRC Team 694 Mechanical, robotics, STEM coursework, community leadership, event organization, mentorship, and choreography. Cumulative average: 93.</p>
+                <p>Advanced Regents Diploma. FRC Team 694 Mechanical, robotics, STEM coursework, community leadership, event organization, mentorship, and choreography. Cumulative average: 93.</p>
               </div>
               <div class="education-meta">
                 <span class="degree">High school diploma</span>
